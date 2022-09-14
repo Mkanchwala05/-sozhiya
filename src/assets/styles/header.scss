@@ -1,0 +1,25 @@
+@import './variable.scss';
+
+.navbar{
+    background:  $light-pink;
+    background: $light-green;
+    .navbar-brand{
+        height: 60px;
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+    .navbar-collapse{
+        .navbar-nav{
+            .nav-link{
+                padding: 10px 15px;
+                text-align: center;
+                color: $heading-text-color ;
+                font-weight: 400;
+                font-size: 14px;
+            }
+        }
+    }
+}

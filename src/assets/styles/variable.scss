@@ -1,0 +1,30 @@
+$white: #fff;
+$gray-pink: #D7CBB2; 
+$light-pink: #FCEED8; 
+$yellow: #D88E35;
+$dark-yellow: #D27C1F;
+$med-light-pink: #DEB48E;
+$bright-pink: #D06550;
+$dark-bright-pink: #bb4932;
+$dark-blue: #111312;
+$light-green: #ddd982; 
+$bright-green: #C3BE36;
+$heading-text-color: #111312;
+
+@mixin btnColor {
+    background: -webkit-linear-gradient(147deg, #db8978 0%, #933927 100%);
+    background: linear-gradient(147deg, #db8978 0%, #933927 100%);
+    &:hover{
+        background: -webkit-linear-gradient(292deg, #db8978 0%, #933927 100%);
+        background: linear-gradient(292deg, #db8978 0%, #933927 100%);
+    }
+}
+@mixin btnShadow {
+    -webkit-box-shadow: 0px 5px 20px  #b36d5f;
+    -moz-box-shadow: 0px 5px 20px #b36d5f;
+    box-shadow: 0px 5px 20px  #b36d5f;
+}
+
+// border-color: #7e7b1b;
+// background: linear-gradient(147deg,#bfb947 0%, #7e7b1b 100%);
+// box-shadow: 0px 5px 20px #9b972b;
