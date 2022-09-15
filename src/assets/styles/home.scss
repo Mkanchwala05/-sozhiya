@@ -129,3 +129,176 @@
         }
     }
 }
+
+.grid_1 {
+    padding: 5em 0;
+}
+
+.heart-divider {
+    height: 100%;
+    width: 100%;
+    margin: 2em auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .grey-line {
+        width: 30px;
+        // height: 8px;
+        display: inline-block;
+        border-top: solid 2px $gray-300;
+    }
+
+    .pink-heart {
+        color: $dark-bright-pink;
+        font-size: 18px;
+        position: relative;
+        z-index: 3;
+        width: 25px;
+    }
+
+    .grey-heart {
+        color: $gray-300;
+        font-size: 18px;
+        margin-left: -18px;
+        position: relative;
+        z-index: 2;
+        width: 25px;
+        text-align: left;
+    }
+}
+
+.linkBtn{
+    color: $dark-bright-pink !important;
+}
+
+.successStoriesPageUI {
+    .successStories_timeLine{
+        .list-group {
+            border-left: 1px solid $gray-300;
+            border-radius: 0;
+            padding: 32px 0 32px 45px;
+            position: relative;
+            .pink-heart {
+                position: absolute;
+                top: -10px;
+                left: -9px;
+                color: $dark-bright-pink;
+                font-size: 18px;
+                &:nth-child(2){
+                    top: auto;
+                    bottom: -10px;
+                    left: -9px;
+                }
+            }
+            .list-group-item {
+                border: none;
+                padding: 0 0 32px;
+                
+                &:last-child{
+                    padding-bottom: 0;
+                }
+
+                &::before{
+                    content: '';
+                    display: block;
+                    width: 40px;
+                    border-top: 1px solid $gray-300;
+                    left: -46px;
+                    position: absolute;
+                    top: 5px;
+                }
+    
+                span {
+                    color: $gray-600;
+                    font-size: 11px;
+                    letter-spacing: 1px;
+                    margin: 0 0 15px;
+                    text-transform: uppercase;
+                    display: block;
+                }
+    
+                .card {
+                    flex-direction: row;
+                    border: none;
+                    border-radius: 0;
+    
+                    .card-img-top {
+                        height: 75px;
+                        width: 75px;
+                        object-fit: cover;
+                        border-radius: 0;
+                    }
+    
+                    .card-body {
+                        padding-top: 0;
+                        padding-bottom: 0;
+
+                        &:hover{
+                            .card-title {
+                                color: $dark-bright-pink;
+                            }
+
+                        }
+    
+                        .card-title {
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+    
+                        .card-text {
+                            font-size: 14px;
+                            display: block;
+                            -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            margin-bottom: 0;
+                            width: 90%;
+                        }
+                        a{
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .religionListBox {
+        margin-bottom: 32px;
+        .religionListCard {
+            display: flex;
+            flex-wrap: wrap;
+            a {
+                color: $gray-800;
+                text-decoration: none;
+                font-size: 14px;
+                margin-right: 7px;
+                padding-right: 7px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                padding-bottom: 7px;
+
+                &::after {
+                    content: '|';
+                    display: inline;
+                    position: absolute;
+                    right: -3px;
+                    font-size: 18px;
+                    font-weight: 100;
+                }
+                &:last-child{
+                    &::after{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
