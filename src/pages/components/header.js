@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar,  } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import "../../assets/styles/header.scss"
 import LogoImage from "../../assets/images/logo.png"
@@ -33,7 +33,9 @@ const Header = () => {
             <Nav.Link href="#Matches">Matches</Nav.Link>
             <Nav.Link href="#Search">Search</Nav.Link>
             <Nav.Link href="#home">Messages</Nav.Link>
-            <Nav.Link href="#link">Contact Us</Nav.Link>
+            <Nav.Link to="/login">Contact Us</Nav.Link>
+            <Nav.Link  href="/login"> Login </Nav.Link>
+            {/* <Link to="/login"> Login </Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

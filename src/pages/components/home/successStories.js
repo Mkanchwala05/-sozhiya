@@ -7,18 +7,18 @@ import CardImg from "../../../assets/images/10.jpg"
 
 function SuccessStories(props) {
     const posts = [
-        {id: 1, CardImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", Cardtitle: 'Lorem & Ipsum', CardText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
-        {id: 2, CardImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  Cardtitle: 'Lorem & Ipsum', CardText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
-        {id: 3, CardImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", Cardtitle: 'Lorem & Ipsum', CardText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
-        {id: 4, CardImage: "https://img.shaadi.com/success-story/vSH53920116-9SH77103955-big.jpg",  Cardtitle: 'Lorem & Ipsum', CardText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
-        {id: 5, CardImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", Cardtitle: 'Lorem & Ipsum', CardText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
-        {id: 6, CardImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  Cardtitle: 'Lorem & Ipsum', CardText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
+        {id: 1, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Lorem & Ipsum', storyText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
+        {id: 2, storyImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  storytitle: 'Lorem & Ipsum', storyText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
+        {id: 3, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Lorem & Ipsum', storyText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
+        {id: 4, storyImage: "https://img.shaadi.com/success-story/vSH53920116-9SH77103955-big.jpg",  storytitle: 'Lorem & Ipsum', storyText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
+        {id: 5, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Lorem & Ipsum', storyText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
+        {id: 6, storyImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  storytitle: 'Lorem & Ipsum', storyText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
     ];
     const post = props.posts;
     return (
         <>
           <Container>
-            <div className="successStoriesPageUI grid_1">
+            <div className="successStoriesPageUI grid_1 pt-0">
                 <h2 className="text-center"> Success Stories </h2>
                 <div className="heart-divider">
                     <span className="grey-line"></span>
@@ -35,11 +35,11 @@ function SuccessStories(props) {
                                 <ListGroup.Item as="li" className="" key={post.id} >
                                     <span> DEC 20, 2015 </span>
                                     <Card>
-                                        <Card.Img variant="top" src={post.CardImage} />
+                                        <Card.Img variant="top" src={post.storyImage} />
                                         <Card.Body>
-                                            <Card.Title> {post.Cardtitle} </Card.Title>
+                                            <Card.Title> {post.storytitle} </Card.Title>
                                             <Card.Text>
-                                            {post.CardText}
+                                            {post.storyText}
                                             </Card.Text>
                                             <Link  to="/">Read More... </Link>
                                         </Card.Body>
