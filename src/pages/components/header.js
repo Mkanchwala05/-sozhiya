@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar,  } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "../../assets/styles/header.scss"
 import LogoImage from "../../assets/images/logo.png"
 
@@ -22,19 +22,21 @@ const Header = () => {
       </nav> */}
       <Navbar expand="lg">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand to="/">
           <img src={LogoImage} alt="logo"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="ms-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link to="/">Home</Nav.Link>
             <Nav.Link href="#about">About Us</Nav.Link>
             <Nav.Link href="#Matches">Matches</Nav.Link>
             <Nav.Link href="#Search">Search</Nav.Link>
             <Nav.Link href="#home">Messages</Nav.Link>
             <Nav.Link to="/login">Contact Us</Nav.Link>
             <Nav.Link  href="/login"> Login </Nav.Link>
+            <Nav.Link  href="/signUp"> Sign Up </Nav.Link>
+
             {/* <Link to="/login"> Login </Link> */}
           </Nav>
         </Navbar.Collapse>

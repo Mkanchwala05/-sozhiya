@@ -3,8 +3,6 @@ import {ListGroup, Card, Container, Row ,Col}  from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 
-import CardImg from "../../../assets/images/10.jpg"
-
 function SuccessStories(props) {
     const posts = [
         {id: 1, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Lorem & Ipsum', storyText: "Some quick example text to build on the card title and make up the bulk of the card's content"},
