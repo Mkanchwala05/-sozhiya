@@ -1,13 +1,11 @@
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import { HiHome } from 'react-icons/hi';
 
 function BreadcrumbUI() {
   return (
     <Breadcrumb>
-      <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
-      <Breadcrumb.Item href="https://getbootstrap.com/docs/4.0/components/breadcrumb/">
-        Library
-      </Breadcrumb.Item>
-      <Breadcrumb.Item active>Data</Breadcrumb.Item>
+      <Breadcrumb.Item href="#"> <HiHome/> </Breadcrumb.Item>
+      <Breadcrumb.Item active>Viewed Profiles</Breadcrumb.Item>
     </Breadcrumb>
   );
 }

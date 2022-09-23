@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Nav, Navbar,  } from 'react-bootstrap';
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../assets/styles/header.scss"
 import LogoImage from "../../assets/images/logo.png"
 
@@ -28,14 +28,14 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="ms-auto">
-            <Nav.Link to="/">Home</Nav.Link>
+            <Link  className='nav-link' to='/' >Home</Link>
             <Nav.Link href="#about">About Us</Nav.Link>
-            <Nav.Link href="#Matches">Matches</Nav.Link>
+            <Link className='nav-link' to="/matches">Matches</Link>
             <Nav.Link href="#Search">Search</Nav.Link>
             <Nav.Link href="#home">Messages</Nav.Link>
             <Nav.Link to="/login">Contact Us</Nav.Link>
-            <Nav.Link  href="/login"> Login </Nav.Link>
-            <Nav.Link  href="/signUp"> Sign Up </Nav.Link>
+            <Link className='nav-link'  to="/login"> Login </Link>
+            <Link className='nav-link' to="/signUp"> Sign Up </Link>
 
             {/* <Link to="/login"> Login </Link> */}
           </Nav>

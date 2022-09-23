@@ -1,15 +1,15 @@
-    import React from "react";
+import React from "react";
 import {ListGroup, Form, Container, Row ,Col, Card, Button}  from 'react-bootstrap';
 import Header from "./components/header";
+import MatchesFilter from "./components/matchesFilter";
 import BreadcrumbUI from "./components/Breadcrumb";
-
 import "../assets/styles/matchesUI.scss";
 
 const MatchesProfile = (props) => {
     const posts = [
         {   id: 1, 
             userID:"254879",
-            userImage: "http://www.sozhiyavellalarmarriage.com/images/a5.jpg",
+            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
             userLastSeen: '4 Hours Ago', 
             userDescriptionTxt: "Some quick example text to build on the card title and make up the bulk of the card's content",
             userAge: "	28 " ,
@@ -22,7 +22,7 @@ const MatchesProfile = (props) => {
         },
         {   id: 2, 
             userID:"254870",
-            userImage: "http://www.sozhiyavellalarmarriage.com/images/a6.jpg",
+            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
             userLastSeen: '4 Hours Ago', 
             userDescriptionTxt: "Some quick example text to build on the card title and make up the bulk of the card's content",
             userAge: "	28 " ,
@@ -35,7 +35,7 @@ const MatchesProfile = (props) => {
         },
         {   id: 3, 
             userID:"25435",
-            userImage: "http://www.sozhiyavellalarmarriage.com/images/a7.jpg",
+            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
             userLastSeen: '4 Hours Ago', 
             userDescriptionTxt: "Some quick example text to build on the card title and make up the bulk of the card's content",
             userAge: "	28 " ,
@@ -48,7 +48,7 @@ const MatchesProfile = (props) => {
         },
         {   id: 4, 
             userID:"35665",
-            userImage: "http://www.sozhiyavellalarmarriage.com/images/a8.jpg",
+            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
             userLastSeen: '4 Hours Ago', 
             userDescriptionTxt: "Some quick example text to build on the card title and make up the bulk of the card's content",
             userAge: "	28 " ,
@@ -61,7 +61,7 @@ const MatchesProfile = (props) => {
         },
         {   id: 5, 
             userID:"532532",
-            userImage: "http://www.sozhiyavellalarmarriage.com/images/a6.jpg",
+            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
             userLastSeen: '4 Hours Ago', 
             userDescriptionTxt: "Some quick example text to build on the card title and make up the bulk of the card's content",
             userAge: "	28 " ,
@@ -74,7 +74,7 @@ const MatchesProfile = (props) => {
         },
         {   id: 6, 
             userID:"356678",
-            userImage: "http://www.sozhiyavellalarmarriage.com/images/a5.jpg",
+            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
             userLastSeen: '4 Hours Ago', 
             userDescriptionTxt: "Some quick example text to build on the card title and make up the bulk of the card's content",
             userAge: "	28 " ,
@@ -93,11 +93,11 @@ const MatchesProfile = (props) => {
             <div className="matchesPageUI">
             
                 <Header />
-                <Container>
+                <Container className="matchesPageUIBody">
                     <BreadcrumbUI/>
                     <Row>
                         <Col md={9}>
-                            <ListGroup horizontal>
+                            <ListGroup horizontal className="matchFilter">
                                 <ListGroup.Item> Don't Show : </ListGroup.Item>
                                 <ListGroup.Item>   
                                     <Form.Group controlId="formBasicCheckbox">
@@ -127,13 +127,13 @@ const MatchesProfile = (props) => {
                                         </div>
                                         <div className="userPersnoalDetails"> 
                                             <ListGroup variant="flush">
-                                                <ListGroup.Item> <span> Age / Height : </span>	{post.userAge}, {post.userHeight}</ListGroup.Item>
-                                                <ListGroup.Item> <span> Last Login : </span>	{post.userLastSeen}</ListGroup.Item>
-                                                <ListGroup.Item> <span> Religion : </span>	    {post.religion}</ListGroup.Item>
-                                                <ListGroup.Item> <span> Marital Status : </span>	{post.MaritalStatus}</ListGroup.Item>
-                                                <ListGroup.Item> <span> Location : </span>	{post.userlocation}</ListGroup.Item>
-                                                <ListGroup.Item> <span> Profile Created By : </span>	{post.userProfileCreated}</ListGroup.Item>
-                                                <ListGroup.Item> <span> Education :</span>	{post.userEducation}</ListGroup.Item>
+                                                <ListGroup.Item> <span> Age / Height : </span>	<p> {post.userAge}, {post.userHeight} </p> </ListGroup.Item>
+                                                <ListGroup.Item> <span> Last Login : </span>	<p> {post.userLastSeen} </p> </ListGroup.Item>
+                                                <ListGroup.Item> <span> Religion : </span>	    <p> {post.religion} </p> </ListGroup.Item>
+                                                <ListGroup.Item> <span> Marital Status : </span>	<p> {post.MaritalStatus} </p> </ListGroup.Item>
+                                                <ListGroup.Item> <span> Location : </span>	<p> {post.userlocation} </p> </ListGroup.Item>
+                                                <ListGroup.Item> <span> Profile Created By : </span>	<p> {post.userProfileCreated} </p> </ListGroup.Item>
+                                                <ListGroup.Item> <span> Education :</span>	<p> {post.userEducation} </p> </ListGroup.Item>
                                             </ListGroup>
                                             <div>
                                                 <Button className="sndMailBtn"> Send Mail </Button>
@@ -146,8 +146,8 @@ const MatchesProfile = (props) => {
                              )}
                         </Col>
 
-                        <Col md={3}>
-
+                        <Col md={3} className="match_right">
+                            <MatchesFilter/>
                         </Col>
                     </Row>
                 </Container>
