@@ -21,9 +21,13 @@ function ViewedProfile() {
                 <BreadcrumbUI />
                 <Row className="ViewedMembersProfiles_UI">
                     <Col md={3} className="match_right mt-0">
-                        <div className="ViewedMembers_lifeSide">
-                            <img src={CoupleImg} alt=""/>
+                        <div className="viewedNot_matches">
+                            <h6>Matches</h6>
+                            <p className="mb-0"> Mutual Matches </p>
+                            <p className="mb-0"> Profiles yet to be viewed </p>
+                            <p> Mutual Matches </p>
                         </div>
+                        
                         <MatchesFilter />
                     </Col>
                     <Col md={9}>

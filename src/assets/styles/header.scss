@@ -21,4 +21,45 @@
             }
         }
     }
+    .dropdown-menu{
+        border: none;
+        box-shadow: 0 10px 10px #0000001c;
+        border-radius: 0;
+        padding: 0;
+        .dropdown-item{
+            font-size: 14px;
+            border-bottom: 1px solid #ddd;
+            padding: 7px 15px;
+            color: $heading-text-color;
+            position: relative;
+            transition: all .5s ease;
+
+            &::before{
+                content: '';
+                height: 36px;
+                width: 3px;
+                background-color: $med-light-pink;
+                display: block;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                transition: all .5s ease;
+            }
+            span{
+                z-index: 2;
+                position: relative;
+            }
+            &:last-child{
+                border: none;
+            }
+            &:hover{
+                background: transparent;
+                color: white;
+                &::before{
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

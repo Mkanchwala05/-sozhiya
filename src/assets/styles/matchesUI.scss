@@ -1,6 +1,9 @@
 @import './variable.scss';
 
 .matchesPageUI {
+    .breadcrumb{
+        margin-bottom: 2rem;
+    }
     .matchesPageUIBody{
         padding: 5em 0;
 
@@ -121,17 +124,46 @@
 
         //------------------- ViewedMembersProfiles_UI -------------------
         .ViewedMembersProfiles_UI {
+            padding-top: 1rem;
+            .ViewedMembers_lifeSide{
+                img{
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;
+                    margin-bottom: 1.5rem;
+                    object-position: top;
+                }
+            }
+            .viewedNot_matches{
+                p{
+                    font-size: 13px;
+                    color: $gray-700;
+                    line-height: 1.8em;
+                }
+            }
+            .nav-tabs{
+                border: none;
+                background: $light-green;
+                .nav-link{
+                    border: none;
+                    color: $heading-text-color;
+                    border-radius: 0;
+                    min-height: 42px;
+                    margin-right: 3px;
+                    &.active,
+                    &:hover{
+                        background: $dark-bright-pink;
+                        border: none;
+                        border-radius: 0;
+                        color: #fff;
+                    }
+                    &:hover{
+                        background-color: $bright-pink;
+                    }
+                }
+            }
             .tab-content{
-                padding-top: 1em;
-                .tabTitleTxt{
-                    color: $dark-bright-pink;
-                    font-size: 18px;
-                }
-                .tabDetailTxt{
-                    font-size: 14px;
-                    color: $gray-800;
-                    line-height: 1.8em
-                }
+                padding-top: 1em;             
             }
             .card {
                 .card-body {
@@ -190,6 +222,41 @@
                     justify-content: space-between;
                     .btn{
                         @include shortBtn;
+                    }
+                }
+            }
+        }
+
+        .tabTitleTxt{
+            color: $dark-bright-pink;
+            font-size: 18px;
+        }
+        .tabDetailTxt{
+            font-size: 14px;
+            color: $gray-800;
+            line-height: 1.8em
+        }
+
+        //---- accessVerified_box
+        .paidMembership{
+            .tabTitleTxt{
+                font-size: 24px;
+            }
+            .accessVerified_box{
+                display: flex;
+                p{
+                    display: flex;
+                    line-height: normal;
+                    align-items: center;
+                    font-size: 14px;
+                    padding: 12px 12px 12px 0; 
+                    svg{
+                        height: 45px;
+                        width: auto;
+                        margin-right: 10px;
+                    }
+                    &:nth-child(2){
+                        padding: 0 15px;
                     }
                 }
             }
