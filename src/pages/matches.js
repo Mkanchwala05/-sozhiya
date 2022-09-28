@@ -1,8 +1,8 @@
 import React from "react";
 import {ListGroup, Form, Container, Row ,Col}  from 'react-bootstrap';
 import Header from "./components/header";
-import MatchesFilter from "./components/matchesFilter";
 import BreadcrumbUI from "./components/Breadcrumb";
+import MatchesFilter from "./components/matchesFilter";
 import FullPorfileCard from "./components/fullProfileCard"
 import "../assets/styles/matchesUI.scss";
 

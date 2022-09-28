@@ -10,7 +10,7 @@ import Header from "./components/header";
 import MatchesFilter from "./components/matchesFilter";
 import BreadcrumbUI from "./components/Breadcrumb";
 import ShortProfileCrad from "./components/shortProfileCard";
-import CoupleImg from "../assets/images/dummy-couple-img.jpg";
+import PrivacySetting from "./components/privacySetting";
 import "../assets/styles/matchesUI.scss";
 
 function ViewedProfile() {
@@ -26,8 +26,7 @@ function ViewedProfile() {
                             <p className="mb-0"> Mutual Matches </p>
                             <p className="mb-0"> Profiles yet to be viewed </p>
                             <p> Mutual Matches </p>
-                        </div>
-                        
+                        </div>                        
                         <MatchesFilter />
                     </Col>
                     <Col md={9}>
@@ -44,7 +43,7 @@ function ViewedProfile() {
                                 <ShortProfileCrad />
                             </Tab>
                             <Tab eventKey="setting" title="Privacy Settings">
-                                Hello
+                                <PrivacySetting/>
                             </Tab>
                         </Tabs>
                     </Col>

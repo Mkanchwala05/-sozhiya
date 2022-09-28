@@ -38,7 +38,7 @@
                 content: '';
                 height: 36px;
                 width: 3px;
-                background-color: $med-light-pink;
+                background-color: $bright-pink;
                 display: block;
                 position: absolute;
                 left: 0;
@@ -55,7 +55,7 @@
             }
             &:hover{
                 background: transparent;
-                color: white;
+                color: $light-pink;
                 &::before{
                     width: 100%;
                 }

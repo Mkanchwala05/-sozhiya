@@ -29,7 +29,7 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                         <Nav className="ms-auto">
                             <Link className='nav-link' to='/' >Home</Link>
-                            <Nav.Link href="#about">About Us</Nav.Link>
+                            <Link className='nav-link' to="/about-us">About Us</Link>
                             <NavDropdown title="Matches" id="collasible-nav-dropdown">
                                 <Link class="dropdown-item" to="/matches"> <span>  New Matches </span> </Link>
                                 <Link class="dropdown-item" to="/viewed-profile" > <span> Who Viewed my Profile  </span> </Link>
