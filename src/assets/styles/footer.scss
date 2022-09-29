@@ -1,0 +1,51 @@
+@import './variable.scss';
+
+footer {
+    background: $light-pink;
+    color: $heading-text-color;
+
+    .links {
+        ul {
+            list-style-type: none;
+        }
+
+        li a {
+            color: $gray-800;
+            transition: color .2s;
+
+            &:hover {
+                text-decoration: none;
+                color: $dark-bright-pink;
+            }
+        }
+    }
+
+    .about-company {
+        i {
+            font-size: 25px;
+        }
+
+        a {
+            color: $gray-800;
+            transition: color .2s;
+
+            &:hover {
+                color: #4180CB
+            }
+        }
+    }
+
+    .location {
+        i {
+            font-size: 18px;
+        }
+    }
+
+    .copyright {
+        margin-top: 2rem;
+        p {
+            padding-top: 1rem;
+            border-top: 1px solid  rgba($med-light-pink, .7)  ;
+        }
+    }
+}

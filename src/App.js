@@ -6,7 +6,7 @@ import MatchesProfile from "./pages/matches";
 import ViewedProfile from "./pages/viewedprofiles"
 import ViewedContacted from "./pages/viewedNot_contacted"
 import Paidembers from "./pages/premiumMembers"
-import AboutUs from "./pages/about-us"
+import AboutUs from "./pages/aboutUs"
 import LoginPage from "./pages/login"; 
 import SignUpPage from "./pages/signUp"; 
 import './App.scss';
@@ -20,7 +20,7 @@ export default function App() {
          <Route path="premium-Members" element={<Paidembers/>}/>       
          <Route path="viewed-profile" element={<ViewedProfile/>}/>       
          <Route path="viewed-Not-Contacted" element={<ViewedContacted/>}/>  
-         <Route path="about-us" element={<ViewedContacted/>}/>               
+         <Route path="about-us" element={<AboutUs/>}/>               
          <Route path="login" element={<LoginPage/>}/>
          <Route path="signUp" element={<SignUpPage/>}/>
       </Routes>

@@ -4,6 +4,7 @@ import Header from "./components/header";
 import BreadcrumbUI from "./components/Breadcrumb";
 import MatchesFilter from "./components/matchesFilter";
 import FullPorfileCard from "./components/fullProfileCard"
+import FooterUI from "../pages/components/footer"
 import "../assets/styles/matchesUI.scss";
 
 const MatchesProfile = (props) => {
@@ -44,6 +45,7 @@ const MatchesProfile = (props) => {
                     </Row>
                 </Container>
             </div>
+            <FooterUI/>
         </>
     );
 };

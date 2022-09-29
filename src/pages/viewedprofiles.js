@@ -12,10 +12,12 @@ import BreadcrumbUI from "./components/Breadcrumb";
 import ShortProfileCrad from "./components/shortProfileCard";
 import CoupleImg from "../assets/images/dummy-couple-img.jpg";
 import PrivacySetting from "./components/privacySetting";
+import FooterUI from "../pages/components/footer"
 import "../assets/styles/matchesUI.scss";
 
 function ViewedProfile() {
     return (
+        <>
         <div className="matchesPageUI">
             <Header />
             <Container className="matchesPageUIBody">
@@ -48,6 +50,8 @@ function ViewedProfile() {
                 </Row>
             </Container>
         </div>
+        <FooterUI/>
+        </>
     );
 }
 

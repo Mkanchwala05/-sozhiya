@@ -59,7 +59,7 @@ function SignUpPage() {
 
                                     <Row className="justify-content-end">
                                         <Col md={4} xs={12}>   
-                                            <Form.Group className="mb-3" controlId="formBasicEmail" className="submitBtnBox">
+                                            <Form.Group className="mb-3 submitBtnBox" controlId="formBasicEmail">
                                                 <Form.Label> submit </Form.Label>
                                                 <Button variant="primary" type="submit">
                                                     Submit

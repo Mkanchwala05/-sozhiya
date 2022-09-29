@@ -9,10 +9,12 @@ import MatchesFilter from "./components/matchesFilter";
 import BreadcrumbUI from "./components/Breadcrumb";
 import FullPorfileCard from "./components/fullProfileCard";
 import { BiMobileAlt, BiHeart, BiMailSend  } from 'react-icons/bi';
+import FooterUI from "../pages/components/footer"
 import "../assets/styles/matchesUI.scss";
 
 function ViewedProfile() {
     return (
+        <>
         <div className="matchesPageUI">
             <Header />
             <Container className="matchesPageUIBody">
@@ -40,6 +42,8 @@ function ViewedProfile() {
                 </Row>
             </Container>
         </div>
+        <FooterUI/>
+        </>
     );
 }
 
