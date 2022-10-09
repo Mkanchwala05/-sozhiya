@@ -135,10 +135,14 @@
                 }
             }
             .viewedNot_matches{
-                p{
+               a{
                     font-size: 13px;
                     color: $gray-700;
                     line-height: 1.8em;
+                    text-decoration: none;
+                    &:hover{
+                        color: $dark-bright-pink;
+                    }
                 }
             }
             .nav-tabs{

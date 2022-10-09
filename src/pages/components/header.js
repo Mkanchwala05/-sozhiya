@@ -9,9 +9,7 @@ const Header = () => {
         <>
             <Navbar expand="lg">
                 <Container>
-                    <Navbar.Brand to="/">
-                        <img src={LogoImage} alt="logo" />
-                    </Navbar.Brand>
+                    <Link class="navbar-brand" to='/' > <img src={LogoImage} alt="logo" /> </Link> 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                         <Nav className="ms-auto">
@@ -23,14 +21,12 @@ const Header = () => {
                                 <Link class="dropdown-item" to="/viewed-Not-Contacted"> <span> Viewed & not Contact  </span> </Link>
                                 <Link class="dropdown-item" to="/premium-Members"> <span>   Premium Members  </span> </Link>
                                 <Link class="dropdown-item" to="/premium-Members"> <span>   Shortlisted Profile  </span> </Link>
-                                <Link class="dropdown-item" to="/premium-Members"> <span>   Upgrade  </span> </Link>
+                                <Link class="dropdown-item" to="/upgrade"> <span>   Upgrade  </span> </Link>
                             </NavDropdown>
                             <Nav.Link href="#Search">Search</Nav.Link>
                             <NavDropdown title="Messages" id="collasible-nav-dropdown">
-                                <Link class="dropdown-item" to="/matches"> <span> Inbox </span> </Link>
-                                <Link class="dropdown-item" to="/viewed-profile" > <span> New  </span> </Link>
-                                <Link class="dropdown-item" to="/viewed-Not-Contacted"> <span> Accepted </span> </Link>
-                                <Link class="dropdown-item" to="/premium-Members"> <span>   Sent </span> </Link>
+                                <Link class="dropdown-item" to="/inbox"> <span> Inbox </span> </Link>
+                                <Link class="dropdown-item" to="/send"> <span>   Sent </span> </Link>
                             </NavDropdown>
                             <Link class="nav-link" to="/contact-us"> Contact Us </Link>
                             <Link className='nav-link loginBtn' to="/login"> Login </Link>
