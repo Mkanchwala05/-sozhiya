@@ -18,6 +18,22 @@
                 color: $heading-text-color ;
                 font-weight: 400;
                 font-size: 14px;
+                &.loginBtn,&.signUpBtn{
+                    color: #fff;
+                    border-radius: 0;
+                    border-color: #DEB48E;
+                    letter-spacing: 0.5px;
+                    background: linear-gradient(147deg, #db8978 0%, #933927 100%);
+                    padding-bottom: 6px;
+                    height: -webkit-fill-available;
+                }
+                &.loginBtn{
+                    margin-left: 10px;
+                }
+                &.signUpBtn{
+                    background: $bright-green;
+                    border-color: $light-green;
+                }
             }
         }
     }

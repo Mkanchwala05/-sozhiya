@@ -22,11 +22,11 @@ $gray-800: #343a40;
 $gray-900: #212529;
 
 @mixin btnColor {
-    background: -webkit-linear-gradient(147deg, #db8978 0%, #933927 100%);
-    background: linear-gradient(147deg, #db8978 0%, #933927 100%);
+    background: -webkit-linear-gradient(147deg, #c7705e 0%, #933927 100%);
+    background: linear-gradient(147deg, #c7705e 0%, #933927 100%);
     &:hover{
-        background: -webkit-linear-gradient(292deg, #db8978 0%, #933927 100%);
-        background: linear-gradient(292deg, #db8978 0%, #933927 100%);
+        background: -webkit-linear-gradient(292deg, #c7705e 0%, #933927 100%);
+        background: linear-gradient(292deg, #c7705e 0%, #933927 100%);
         border-color: #DEB48E;
     }
     &:focus{

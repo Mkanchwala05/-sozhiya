@@ -23,12 +23,18 @@ const Header = () => {
                                 <Link class="dropdown-item" to="/viewed-Not-Contacted"> <span> Viewed & not Contact  </span> </Link>
                                 <Link class="dropdown-item" to="/premium-Members"> <span>   Premium Members  </span> </Link>
                                 <Link class="dropdown-item" to="/premium-Members"> <span>   Shortlisted Profile  </span> </Link>
+                                <Link class="dropdown-item" to="/premium-Members"> <span>   Upgrade  </span> </Link>
                             </NavDropdown>
                             <Nav.Link href="#Search">Search</Nav.Link>
-                            <Nav.Link href="#home">Messages</Nav.Link>
-                            <Nav.Link to="/login">Contact Us</Nav.Link>
-                            <Link className='nav-link' to="/login"> Login </Link>
-                            <Link className='nav-link' to="/signUp"> Sign Up </Link>
+                            <NavDropdown title="Messages" id="collasible-nav-dropdown">
+                                <Link class="dropdown-item" to="/matches"> <span> Inbox </span> </Link>
+                                <Link class="dropdown-item" to="/viewed-profile" > <span> New  </span> </Link>
+                                <Link class="dropdown-item" to="/viewed-Not-Contacted"> <span> Accepted </span> </Link>
+                                <Link class="dropdown-item" to="/premium-Members"> <span>   Sent </span> </Link>
+                            </NavDropdown>
+                            <Link class="nav-link" to="/contact-us"> Contact Us </Link>
+                            <Link className='nav-link loginBtn' to="/login"> Login </Link>
+                            <Link className='nav-link signUpBtn' to="/signUp"> Register </Link>
 
                             {/* <Link to="/login"> Login </Link> */}
                         </Nav>
