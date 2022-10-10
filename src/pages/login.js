@@ -1,10 +1,15 @@
 import React from "react";
 import { Container, Row, Form, Button } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/styles/login.scss";
 import LogoImage from "../assets/images/logo.png"
 
 function LoginPage() {
+    const navigate = useNavigate();
+  
+    const navigateHome = () => {
+      navigate('/');
+    };
     return (
         <>
             <div className="d-lg-flex half">
@@ -33,7 +38,7 @@ function LoginPage() {
                                         </Form.Group>
                                         <Link to="/" className="forgetPswd"> Forget Password? </Link>
                                     </div>
-                                    <Button variant="primary" type="submit">
+                                    <Button variant="primary" type="submit" onClick={navigateHome}>
                                         Submit
                                     </Button>
                                     <p className="signUpTxt"> Not Registered yet? <Link to="/signUp"> Create an Account </Link> </p>

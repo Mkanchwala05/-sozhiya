@@ -1,14 +1,26 @@
 import React from "react";
 import { Container, Button, Row, Form, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 
 const HeroBanner = () => {
+    const navigate = useNavigate();
+  
+    const navigateSignUp = () => {
+      navigate('/signUp');
+    };
+
+    const navigateMatches = () => {
+        navigate('/matches');
+      };
+
     return (
         <>
             <div className="banner">
                 <Container className="bannerContainer">
                     <div className="banner_info">
                         <h2>Millions of verified Members</h2>
-                        <Button variant="primary" className="createprofileBtn">
+                        <Button variant="primary" className="createprofileBtn" onClick={navigateSignUp} >
                             Create your Profile
                         </Button>
                     </div>
@@ -64,6 +76,7 @@ const HeroBanner = () => {
                                         variant="primary"
                                         type="submit"
                                         className="submitBtnBanner"
+                                        onClick={navigateMatches}
                                     >
                                         Submit
                                     </Button>

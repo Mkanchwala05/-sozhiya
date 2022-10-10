@@ -3,9 +3,16 @@ import { Container, Card } from 'react-bootstrap';
 import { FaHeart } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
 function FeaturedProfile(props){
+    const navigate = useNavigate();
+  
+    const navigateMatches = () => {
+        navigate('/matches');
+    };
+
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
@@ -62,7 +69,7 @@ function FeaturedProfile(props){
                         customTransition="all .5s"
                     >
                         {posts.map((post) =>
-                        <div>
+                        <div onClick={navigateMatches}>
                             <Card>
                                 <div className="featureProfile_card_image">
                                     <Card.Img variant="top" src={post.storyImage} />
