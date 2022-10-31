@@ -169,6 +169,14 @@
 							}
 						}
 					}
+					.inlineFromGrup{
+						display: flex;
+						flex-wrap: nowrap;
+						justify-content: space-between;
+						select{
+							width: 30%;
+						}
+					}
 				}
 			}
 		}
