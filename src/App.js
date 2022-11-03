@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Home";
 import MatchesProfile from "./pages/matches";
+import UserProfile from "./pages/profile";
 import ViewedProfile from "./pages/viewedprofiles"
 import ViewedContacted from "./pages/viewedNot_contacted"
 import Paidembers from "./pages/premiumMembers"
@@ -20,12 +21,13 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout />} />
-                    <Route path="matches" element={<MatchesProfile />} />
-                    <Route path="premium-Members" element={<Paidembers />} />
-                    <Route path="viewed-profile" element={<ViewedProfile />} />
-                    <Route path="viewed-Not-Contacted" element={<ViewedContacted />} />
-                        <Route path="inbox" element={<UserInbox />} />
-                        <Route path="send" element={<SendInbox />} />
+                <Route path="profile/:id" element={<UserProfile />} />
+                <Route path="matches" element={<MatchesProfile />} />
+                <Route path="premium-Members" element={<Paidembers />} />
+                <Route path="viewed-profile" element={<ViewedProfile />} />
+                <Route path="viewed-Not-Contacted" element={<ViewedContacted />} />
+                <Route path="inbox" element={<UserInbox />} />
+                <Route path="send" element={<SendInbox />} />
                 <Route path="about-us" element={<AboutUs />} />
                 <Route path="Upgrade" element={<Upgrade />} />
                 <Route path="contact-us" element={<ConatctUs />} />

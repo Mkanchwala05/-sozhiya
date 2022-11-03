@@ -31,7 +31,7 @@
 					min-height: 50px;
 					background: transparent;
 					border-radius: 0;
-					font-size: 16px;
+					font-size: 14px;
 					color: $dark-blue;
 					border: 1px solid #D06550;
 					&:active {
@@ -43,6 +43,9 @@
 						outline: none;
 						-webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 						box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+					}
+					&::placeholder{
+						font-size: 14px;
 					}
 				}
 				.form-check{
@@ -56,7 +59,7 @@
 						color: $dark-bright-pink;
 					}
 				}
-				button{
+				.btn{
 					height: auto;
 					padding: 11px 40px;
 					border: 2px solid #fff;
@@ -70,6 +73,10 @@
 					@include btnShadow;
 					box-shadow: none;
 					width: 100%;
+					&.backBtn{
+						background: $gray-700;
+						border-color: $gray-800;
+					}
 				}
 				.form-check-input:checked{
 					background-color: $dark-bright-pink;
@@ -173,8 +180,11 @@
 						display: flex;
 						flex-wrap: nowrap;
 						justify-content: space-between;
-						select{
+						select, .form-control{
 							width: 30%;
+						}
+						.form-check{
+							margin-right: 20px;
 						}
 					}
 				}
@@ -295,6 +305,89 @@
 		}
 		.bg {
 			width: 100%;
+		}
+	}
+}
+.wizardApp{
+	.steps{
+		.nav{
+		    position: relative;
+			overflow: hidden;
+			display: flex;
+			justify-content: space-between;
+			margin: 3rem 2rem;
+			li{
+				&::before {
+					content: " ";
+					background-color: rgb(155, 155, 155);
+					border: 10px solid #fff;
+					border-radius: 50%;
+					display: block;
+					width: 30px;
+					height: 30px;
+					margin: 9px auto;
+					box-shadow: 1px 1px 3px #606060;
+					transition: all;
+					z-index: 1;
+					position: relative;
+				}
+				&.active{
+					&::before {
+						// font-family: "Font Awesome 5 free";
+						content: "";
+						font-size: 11px;
+						font-weight: 600;
+						color: #fff;
+						padding: 6px;
+						background:$bright-green url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="m256 0c-141.164062 0-256 114.835938-256 256s114.835938 256 256 256 256-114.835938 256-256-114.835938-256-256-256zm0 0" fill="#2196f3" data-original="#2196f3" class=""></path><path d="m385.75 201.75-138.667969 138.664062c-4.160156 4.160157-9.621093 6.253907-15.082031 6.253907s-10.921875-2.09375-15.082031-6.253907l-69.332031-69.332031c-8.34375-8.339843-8.34375-21.824219 0-30.164062 8.339843-8.34375 21.820312-8.34375 30.164062 0l54.25 54.25 123.585938-123.582031c8.339843-8.34375 21.820312-8.34375 30.164062 0 8.339844 8.339843 8.339844 21.820312 0 30.164062zm0 0" fill="#fafafa" data-original="#fafafa"></path></g></svg>');
+						
+						border: 1px solid $bright-green;
+						box-shadow: 0 0 0 7.5px rgba($bright-green , 0.2);
+					}
+				}
+				&:nth-child(2){
+					&::after{
+					    content: "";
+						background-color: rgb(155, 155, 155);
+						padding: 0px 0px;
+						position: absolute;
+						top: 14px;
+						left: 12px;
+						width: calc(100% - 20px);
+						height: 2px;
+						margin: 9px auto;
+						transition: all 0.8s;
+					}
+				}
+				
+			}
+		}
+		position: relative;
+	}
+	.step-component{
+		.tabTitleTxt{
+			margin: 30px 0 20px;
+			border-bottom: 2px dashed  rgba($bright-pink, 0.6);
+			padding-bottom: 5px;
+		}
+		.signUpInnerBox{
+			padding-left: 30px;
+		}
+	}
+	.submitBtnBox{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 35px;
+		.btn{
+			max-width: 160px;
+			opacity: 1;
+			&:disabled{
+				display: none;
+			}
+			&.nextBtn{
+				margin-left: auto;
+				margin-right: 0;
+			}
 		}
 	}
 }

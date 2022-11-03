@@ -81,7 +81,6 @@ const FullPorfileCard = (props) =>{
             userProfileCreated: "Self" ,
             userEducation: "Engineering"             
         }
-        
     ];
     const post = props.posts;
    return(
