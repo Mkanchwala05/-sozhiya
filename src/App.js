@@ -15,12 +15,16 @@ import ConatctUs from "./pages/contactUs"
 import LoginPage from "./pages/login";
 import SignUpPage from "./pages/signUp";
 import './App.scss';
+import {useSelector} from "react-redux"
+import { selectUser } from "./authUser/userSlice"
 
 export default function App() {
+    const user = useSelector(selectUser)
     return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout />} />
+                <Route path="login" element={<LoginPage />} />
                 <Route path="profile/:id" element={<UserProfile />} />
                 <Route path="matches" element={<MatchesProfile />} />
                 <Route path="premium-Members" element={<Paidembers />} />
@@ -31,7 +35,6 @@ export default function App() {
                 <Route path="about-us" element={<AboutUs />} />
                 <Route path="Upgrade" element={<Upgrade />} />
                 <Route path="contact-us" element={<ConatctUs />} />
-                <Route path="login" element={<LoginPage />} />
                 <Route path="signUp" element={<SignUpPage />} />
             </Routes>
         </BrowserRouter>

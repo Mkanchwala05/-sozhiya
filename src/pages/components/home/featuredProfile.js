@@ -10,7 +10,7 @@ function FeaturedProfile(props){
     const navigate = useNavigate();
   
     const navigateMatches = () => {
-        navigate('/profile/1');
+        navigate('/profile');
     };
 
     const responsive = {

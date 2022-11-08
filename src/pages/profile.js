@@ -51,16 +51,16 @@ const UserProfile = (props) => {
           <Card>
             <Card.Header>Profile ID : {users.id + 21000} </Card.Header>
             <Card.Body>
-              <Card.Img variant="top" src={users.userImage} />
+              <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
               <div className="userPersnoalDetails">
                 <ListGroup variant="flush">
-                  {/* <ListGroup.Item> <span> Age / Height : </span>	<p> {users.userAge}, {users.userHeight} </p> </ListGroup.Item>
-                  <ListGroup.Item> <span> Last Login : </span>	<p> {users.userLastSeen} </p> </ListGroup.Item>
-                  <ListGroup.Item> <span> Religion : </span>	    <p> {users.religion} </p> </ListGroup.Item> */}
+                  <ListGroup.Item> <span> Name : </span>	<p> {users.name} </p> </ListGroup.Item>
+                  <ListGroup.Item> <span> Sex : </span>	<p> {users.sex} </p> </ListGroup.Item>
+                  <ListGroup.Item> <span> Religion : </span>	    <p> {users.kulam} </p> </ListGroup.Item>
                   <ListGroup.Item> <span> Marital Status : </span>	<p> {users.maritalStatus} </p> </ListGroup.Item>
-                  {/* <ListGroup.Item> <span> Location : </span>	<p> {users.userlocation} </p> </ListGroup.Item>
-                  <ListGroup.Item> <span> Profile Created By : </span>	<p> {users.userProfileCreated} </p> </ListGroup.Item>
-                  <ListGroup.Item> <span> Education :</span>	<p> {users.userEducation} </p> </ListGroup.Item> */}
+                  <ListGroup.Item> <span> Location : </span>	<p> {users.employedCountry} </p> </ListGroup.Item>
+                  <ListGroup.Item> <span> Profile Created By : </span>	<p> {users.id + 21000} </p> </ListGroup.Item>
+                  <ListGroup.Item> <span> Education :</span>	<p> {users.education} </p> </ListGroup.Item> 
                 </ListGroup>
               </div>
             </Card.Body>
