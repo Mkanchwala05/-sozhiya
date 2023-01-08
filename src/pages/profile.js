@@ -10,28 +10,6 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const UserProfile = (props) => {
-  // const posts = [
-  //   {
-  //     id: 1,
-  //     userID: "254879",
-  //     userImage: "https://plchldr.co/i/245x155?bg=EB6361",
-  //     userLastSeen: '4 Hours Ago',
-  //     userDescriptionTxt: "Some quick example text to build on the card title and make up the bulk of the card's content",
-  //     userAge: "	28 ",
-  //     userHeight: " 5ft 5in 163cm",
-  //     religion: "Sikh",
-  //     MaritalStatus: "Single",
-  //     userlocation: "India",
-  //     userProfileCreated: "Self",
-  //     userEducation: "Engineering"
-  //   }
-  // ];
-  // const apiGet = () => {
-  //   fetch("http://localhost:3000/users")
-  //   .then((response) => response.json() ) 
-  //   .the((json) => console.log(json));
-  // };
-  // const post = props.posts;
 
   const {id} = useParams ()
   const url =`http://localhost:3000/users/${id}`

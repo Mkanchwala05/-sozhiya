@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Card } from 'react-bootstrap';
 import { FaHeart } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
-function FeaturedProfile(props){
-    const navigate = useNavigate();
-  
-    const navigateMatches = () => {
-        navigate('/profile');
-    };
+function FeaturedProfile(props) {
+    const [users, setUsers] = useState([]);
+
+    const getUsers = async () => {
+        const response = await fetch('http://localhost:3000/users');
+        setUsers(await response.json());
+    }
+
+    useEffect(() => {
+        getUsers();
+    }, []);
 
     const responsive = {
         superLargeDesktop: {
@@ -31,21 +36,6 @@ function FeaturedProfile(props){
             items: 2
         }
     };
-    const posts = [
-        {id: 1, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 2, storyImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 3, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 4, storyImage: "https://img.shaadi.com/success-story/vSH53920116-9SH77103955-big.jpg",  storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 5, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 6, storyImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 7, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 8, storyImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 9, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 10, storyImage: "https://img.shaadi.com/success-story/vSH53920116-9SH77103955-big.jpg",  storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 11, storyImage: "https://img.shaadi.com/success-story/cSH76530942-QSH17164890-big.jpg", storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-        {id: 12, storyImage: "https://img.shaadi.com/success-story/jSH80848585-hSH37823012-big.jpg",  storytitle: 'Profile ID : MI-387412', storyText: "28, Christian, Australia", storydesignation: 'Corporate' },
-    ];
-    const post = props.posts;
     return (
         <>
             <div className="featureProfilePageUI grid_1">
@@ -68,24 +58,27 @@ function FeaturedProfile(props){
                         keyBoardControl={true}
                         customTransition="all .5s"
                     >
-                        {posts.map((post) =>
-                        <div onClick={navigateMatches}>
-                            <Card>
-                                <div className="featureProfile_card_image">
-                                    <Card.Img variant="top" src={post.storyImage} />
+                        {users.map((curElem) => {
+                            return (
+                                <div onClick={"/profile/"+ curElem.id}>
+                                    <Card key={curElem.id} >
+                                        <div className="featureProfile_card_image">
+                                            <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
+                                        </div>
+                                        <Card.Body>
+                                            <Card.Title>  {curElem.name} {curElem.id + 21000} </Card.Title>
+                                            <Card.Text>
+                                                {curElem.name}
+                                            </Card.Text>
+                                            {/* </Card.Text>
+                                                {post.storydesignation}
+                                            </Card.Text> */}
+                                        </Card.Body>
+                                    </Card>
                                 </div>
-                                <Card.Body>
-                                    <Card.Title> {post.storytitle} </Card.Title>
-                                    <Card.Text>
-                                        {post.storyText}
-                                    </Card.Text>
-                                    <Card.Text>
-                                        {post.storydesignation}
-                                    </Card.Text>
-                                </Card.Body>
-                            </Card>
-                        </div>
-                        )}
+                            )
+                        })
+                        }
                     </Carousel>
                 </Container>
             </div>

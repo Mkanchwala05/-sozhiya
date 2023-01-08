@@ -47,7 +47,7 @@ function SuccessStories(props) {
                         </ListGroup>
                     </Col>
                     <Col md={4}>
-                        <div className="religionListBox">                        
+                        {/* <div className="religionListBox">                        
                             <h4> Religion : </h4>
                             <div className="religionListCard">
                                 <Link  to="/"> Hindu  </Link>
@@ -56,7 +56,7 @@ function SuccessStories(props) {
                                 <Link  to="/"> Sikh  </Link>
                                 <Link  to="/"> Inter Religion  </Link>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="religionListBox">                        
                             <h4> Country : </h4>

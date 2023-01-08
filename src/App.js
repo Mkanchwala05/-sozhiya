@@ -23,6 +23,10 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
+                {/* {
+                    user ? <Route path="/" element={<Layout />} /> :
+                    <Route path="/" element={<LoginPage />} />
+                } */}
                 <Route path="/" element={<Layout />} />
                 <Route path="login" element={<LoginPage />} />
                 <Route path="profile/:id" element={<UserProfile />} />

@@ -23,14 +23,14 @@ const Header = () => {
                                 <Link class="dropdown-item" to="/premium-Members"> <span>   Shortlisted Profile  </span> </Link>
                                 <Link class="dropdown-item" to="/upgrade"> <span>   Upgrade  </span> </Link>
                             </NavDropdown>
-                            <Nav.Link href="#Search">Search</Nav.Link>
+                            {/* <Nav.Link href="#Search">Search</Nav.Link> */}
                             <NavDropdown title="Messages" id="collasible-nav-dropdown">
                                 <Link class="dropdown-item" to="/inbox"> <span> Inbox </span> </Link>
                                 <Link class="dropdown-item" to="/send"> <span>   Sent </span> </Link>
                             </NavDropdown>
                             <Link class="nav-link" to="/contact-us"> Contact Us </Link>
                             <Link className='nav-link loginBtn' to="/login"> Login </Link>
-                            <Link className='nav-link signUpBtn' to="/signUp"> Register </Link>
+                            {/* <Link className='nav-link signUpBtn' to="/login"> Login </Link> */}
 
                             {/* <Link to="/login"> Login </Link> */}
                         </Nav>

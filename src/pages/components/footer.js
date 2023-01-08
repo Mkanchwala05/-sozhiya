@@ -11,7 +11,7 @@ const FooterUI = () => {
                     <Row>
                         <Col lg={5} xs={12} className="about-company">
                             <h2>About Us</h2>
-                            <p className="pr-5 "> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris." </p>
+                            <p className="pr-5 "> Sozhiya Vellalar Marriage.Com is a Best Tamil Matrimony Services on the Globe. All eligible Tamil Vellalars can get on-line help to find a Suitable Tamil Vellalar Brides / Grooms with whom he/she expects to live life-long, with full of Bliss and Happiness - Sozhiya Vellalar Marriage.Com will help our Tamil Vellalar Community people to find Suitable Tamil Vellalar Brides & Grooms and We are more than 25 Years in Tamil Matrimonial Service - More Than 6 Lakh Registered Users - 10 Branches in Tamilnadu, Pondicherry, Karaikal, Kerala, Andhra Pradesh and Karnataka. </p>
                             <p>
                                 <a href="#">
                                     <i className="fa fa-facebook-square mr-1"></i>
@@ -24,19 +24,17 @@ const FooterUI = () => {
                         <Col lg={3} xs={12} className="links">
                             <h4 className="mt-lg-0 mt-sm-3"> Quick Links </h4>
                             <ul className="m-0 p-0">
-                                <li>- <a href="#">Lorem ipsum</a></li>
-                                <li>- <a href="#">Nam mauris velit</a></li>
-                                <li>- <a href="#">Etiam vitae mauris</a></li>
-                                <li>- <a href="#">Fusce scelerisque</a></li>
-                                <li>- <a href="#">Sed faucibus</a></li>
-                                <li>- <a href="#">Mauris efficitur nulla</a></li>
+                                <li>- <a href="#"> Sozhiya Vellalar Sangam Website,  </a></li>
+                                <li>- <a href="#"> Facebook </a></li>
+                                <li>- <a href="#">  WhatsApp </a></li>
+                                <li>- <a href="#"> VOC Pillai Website </a></li>
                             </ul>
                         </Col>
                         <Col lg={4} xs={12} className="location">
                             <h4 className="mt-lg-0 mt-sm-4"> Help & Support </h4>
-                            <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-                            <p className="mb-0"><i className="fa fa-phone mr-3"></i>(541) 754-3010</p>
-                            <p><i className="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+                            <p> Sozhiya Vellalar Sangam Marriage Information office  </p>
+                            <p className="mb-0"><i className="fa fa-phone mr-3"></i> +91 99999 88888 </p>
+                            <p><i className="fa fa-envelope-o mr-3"></i> Info@sozhiyavellalarmarriage.com </p>
                         </Col>
                     </Row>
                     <Row className="mt-5">

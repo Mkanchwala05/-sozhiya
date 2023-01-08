@@ -1,18 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Button, Row, Form, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 
+const gender = [
+    { value: 'male', label: 'Male' },
+    { value: 'female', label: 'Female' },
+    { value: 'other', label: 'Other' }
+]
+
+const Interest = [
+    { value: 'Sports & Adventure', label: 'Sports & Adventure' },
+    { value: 'Movies & Entertainment', label: 'Movies & Entertainment' },
+    { value: 'Arts & Science', label: 'Arts & Science' },
+    { value: 'Technology', label: 'Technology' },
+    { value: 'Fashion', label: 'Fashion' }
+]
+
+const status = [
+    { value: 'Single', label: 'Single' },
+    { value: 'Married', label: 'Married' },
+    { value: 'In a Relationship', label: 'In a Relationship' },
+    { value: 'Its Complicated', label: 'Its Complicated' }
+]
+
+const state = [
+    {value: 'andhra Pradesh', label:' Andhra Pradesh' },
+    {value: 'Andaman and Nicobar Islands', label:'Andaman and Nicobar Islands'},
+    {value: 'Arunachal Pradesh', label:'Arunachal Pradesh'},
+    {value: 'Assam', label:'Assam'},
+    {value: 'Bihar', label:'Bihar'},
+    {value: 'Chandigarh', label:'Chandigarh'},
+    {value: 'Chhattisgarh', label:'Chhattisgarh'},
+    {value: 'Dadar and Nagar Haveli', label:'Dadar and Nagar Haveli'},
+    {value: 'Daman and Diu', label:'Daman and Diu'},
+    {value: 'Delhi', label:'Delhi'},
+    {value: 'Lakshadweep', label:'Lakshadweep'},
+    {value: 'Puducherry', label:'Puducherry'},
+    {value: 'Goa', label:'Goa'},
+    {value: 'Gujarat', label:'Gujarat'},
+    {value: 'Haryana', label:'Haryana'},
+    {value: 'Himachal Pradesh', label:'Himachal Pradesh'},
+    {value: 'Jammu and Kashmir', label:'Jammu and Kashmir'},
+    {value: 'Jharkhand', label:'Jharkhand'},
+    {value: 'Karnataka', label:'Karnataka'},
+    {value: 'Kerala', label:'Kerala'},
+    {value: 'Madhya Pradesh', label:'Madhya Pradesh'},
+    {value: 'Maharashtra', label:'Maharashtra'},
+    {value: 'Manipur', label:'Manipur'},
+    {value: 'Meghalaya', label:'Meghalaya'},
+    {value: 'Mizoram', label:'Mizoram'},
+    {value: 'Nagaland', label:'Nagaland'},
+    {value: 'Odisha', label:'Odisha'},
+    {value: 'Punjab', label:'Punjab'},
+    {value: 'Rajasthan', label:'Rajasthan'},
+    {value: 'Sikkim', label:'Sikkim'},
+    {value: 'Tamil Nadu', label:'Tamil Nadu'},
+    {value: 'Telangana', label:'Telangana'},
+    {value: 'Tripura', label:'Tripura'},
+    {value: 'Uttar Pradesh', label:'Uttar Pradesh'},
+    {value: 'Uttarakhand', label:'Uttarakhand'},
+    {value: 'West Bengal', label:'West Bengal'},    
+]
+
+
+
 const HeroBanner = () => {
     const navigate = useNavigate();
-  
+
     const navigateSignUp = () => {
-      navigate('/signUp');
+        navigate('/signUp');
     };
 
     const navigateMatches = () => {
         navigate('/matches');
-      };
+    };
 
     return (
         <>
@@ -32,15 +94,19 @@ const HeroBanner = () => {
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label> I am looking for </Form.Label>
                                     <Form.Select defaultValue="Choose...">
-                                        <option>Select Gender</option>
-                                        <option>...</option>
+                                        <option selected > Select Gender</option>
+                                        {gender.map((item, i) => {
+                                            return <option key={i} value={item.value}>{item.label}</option>
+                                        })}
                                     </Form.Select>
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label> Located In </Form.Label>
                                     <Form.Select defaultValue="Choose...">
-                                        <option>Select State</option>
-                                        <option>...</option>
+                                        <option selected >Select State</option>
+                                        {state.map((item, i) => {
+                                            return <option key={i} value={item.value}>{item.label}</option>
+                                        })}
                                     </Form.Select>
                                 </Form.Group>
 
@@ -48,7 +114,9 @@ const HeroBanner = () => {
                                     <Form.Label> Interested In </Form.Label>
                                     <Form.Select defaultValue="Choose...">
                                         <option>Select Interest</option>
-                                        <option>...</option>
+                                        {Interest.map((item, i) => {
+                                            return <option key={i} value={item.value}>{item.label}</option>
+                                        })}
                                     </Form.Select>
                                 </Form.Group>
 
@@ -68,7 +136,9 @@ const HeroBanner = () => {
                                     <Form.Label> Status </Form.Label>
                                     <Form.Select defaultValue="Choose...">
                                         <option> Select Status </option>
-                                        <option>...</option>
+                                        {status.map((item, i) => {
+                                            return <option key={i} value={item.value}>{item.label}</option>
+                                        })} 
                                     </Form.Select>
                                 </Form.Group>
                                 <Col>

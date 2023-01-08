@@ -4,18 +4,27 @@ footer {
     background: $light-pink;
     color: $heading-text-color;
 
+    h2{
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
     .links {
         ul {
             list-style-type: none;
         }
 
-        li a {
-            color: $gray-800;
-            transition: color .2s;
-
-            &:hover {
+        li {
+            margin-bottom: 6px;
+            font-size: 14px;
+            a {
+                color: $gray-800;
+                transition: color .2s;
                 text-decoration: none;
-                color: $dark-bright-pink;
+    
+                &:hover {
+                    color: $dark-bright-pink;
+                }
             }
         }
     }
@@ -32,6 +41,10 @@ footer {
             &:hover {
                 color: #4180CB
             }
+        }
+        p{
+            font-size: 13px;
+            line-height: 1.7;
         }
     }
 

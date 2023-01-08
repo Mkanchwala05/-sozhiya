@@ -1,101 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Card, Button}  from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaGooglePlusG } from 'react-icons/fa';
 
 const ShortProfileCrad = (props) =>{
-    const posts = [
-        {   id: 1, 
-            userID:"254879",
-            userName:"Profile Name",
-            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
-            userLastSeen: '4 Hours Ago', 
-            userAge: "	28 " ,
-            userHeight: " 5ft 5in 163cm" ,
-            religion: "Sikh" ,
-            userEducation: "Engineering",
-            userOccupation: "Software Professional"              
-        },
-        {   id: 2, 
-            userID:"254870",
-            userName:"Profile Name",
-            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
-            userLastSeen: '4 Hours Ago', 
-            userAge: "	28 " ,
-            userHeight: " 5ft 5in 163cm" ,
-            religion: "Sikh" ,
-            userEducation: "Engineering",
-            userOccupation: "Software Professional"              
-        },
-        {   id: 3, 
-            userID:"25435",
-            userName:"Profile Name",
-            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
-            userLastSeen: '4 Hours Ago', 
-            userAge: "	28 " ,
-            userHeight: " 5ft 5in 163cm" ,
-            religion: "Sikh" ,
-            userEducation: "Engineering",
-            userOccupation: "Software Professional"              
-        },
-        {   id: 4, 
-            userID:"35665",
-            userName:"Profile Name",
-            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
-            userLastSeen: '4 Hours Ago', 
-            userAge: "	28 " ,
-            userHeight: " 5ft 5in 163cm" ,
-            religion: "Sikh" ,
-            userEducation: "Engineering",
-            userOccupation: "Software Professional"              
-        },
-        {   id: 5, 
-            userID:"532532",
-            userName:"Profile Name",
-            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
-            userLastSeen: '4 Hours Ago', 
-            userAge: "	28 " ,
-            userHeight: " 5ft 5in 163cm" ,
-            religion: "Sikh" ,
-            userEducation: "Engineering",
-            userOccupation: "Software Professional"              
-        },
-        {   id: 6, 
-            userID:"356678",
-            userName:"Profile Name",
-            userImage: "https://plchldr.co/i/245x155?bg=EB6361",
-            userLastSeen: '4 Hours Ago', 
-            userAge: "	28 " ,
-            userHeight: " 5ft 5in 163cm" ,
-            religion: "Sikh" ,
-            userEducation: "Engineering",      
-            userOccupation: "Software Professional"       
-        }
-        
-    ];
-    const post = props.posts;
+    const [users, setUsers ] = useState([]);
+
+    const getUsers = async () => {
+        const response = await fetch('http://localhost:3000/users');
+        setUsers(await response.json());
+    }
+
+    useEffect(() => {
+        getUsers();
+    }, []);
+
    return(
     <>
-        {posts.map((post) =>
-            <Card  key={post.id}>
+         {users.map((curElem) =>   {
+                 return(
+            <Card  key={curElem.id}>
                 <Card.Body>
-                    <Card.Img variant="top" src={post.userImage} />
+                    <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
                     <div className="userDescription"> 
-                        <h4> {post.userName} ({post.userID}) 
+                        <h4> {curElem.name} {curElem.id + 21000}
                             <div className="socialIcons">
                                 <Link  to="/" > <FaFacebookF/> </Link>
                                 <Link  to="/" > <FaTwitter/> </Link>
                                 <Link  to="/" className="googlePlusIcon" > <FaGooglePlusG/> </Link>
                             </div>
                         </h4>
-                        <small> Last Login : {post.userLastSeen} </small>
+                        <small> Last Login : {curElem.userLastSeen} </small>
                         <p> 
-                            {post.userAge}, {post.userHeight} | 
-                            <b> Religion : </b> {post.religion} |
-                            <b> Education : </b> {post.userEducation} |
-                            <b> Occupation  : </b> {post.userOccupation}
+                            <b> Sex :  </b> {curElem.sex} | 
+                            <b> Religion : </b> {curElem.kulam} |
+                            <b> Education : </b> {curElem.education} |
+                            <b> Location  : </b> {curElem.employedCountry}
                         </p>
-                        <Link to="/"> view full profile </Link>
+                        <Link to={"/profile/"+ curElem.id}> view full profile </Link>
                     </div>                                   
                 </Card.Body>
                 <Card.Footer>
@@ -103,7 +45,10 @@ const ShortProfileCrad = (props) =>{
                     <Button className="sndMailBtn"> Send Mail </Button>
                 </Card.Footer>
             </Card>
-        )}
+               ) 
+            })
+           
+        }
     </>
    );
 }
