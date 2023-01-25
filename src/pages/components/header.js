@@ -8,10 +8,10 @@ const Header = () => {
     return (
         <>
             <Navbar expand="lg">
-                <Container>
+                <Container className='navbar-container_ui'>
                     <Link class="navbar-brand" to='/' > <img src={LogoImage} alt="logo" /> </Link> 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end navbar-mobile-menu">
                         <Nav className="ms-auto">
                             <Link className='nav-link' to='/' >Home</Link>
                             <Link className='nav-link' to="/about-us">About Us</Link>

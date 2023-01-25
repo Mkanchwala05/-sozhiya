@@ -90,7 +90,7 @@ const HeroBanner = () => {
                 <div className="banner_info_form">
                     <Container>
                         <Form>
-                            <Row className="mb-3 align-items-end">
+                            <Row className="mb-3 align-items-end ">
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label> I am looking for </Form.Label>
                                     <Form.Select defaultValue="Choose...">
@@ -120,7 +120,7 @@ const HeroBanner = () => {
                                     </Form.Select>
                                 </Form.Group>
 
-                                <Form.Group as={Col} controlId="formGridCity">
+                                <Form.Group as={Col} controlId="formGridCity" className="ageBox-filter">
                                     <Form.Label>Age </Form.Label>
                                     <Row className="align-items-center">
                                         <Col>

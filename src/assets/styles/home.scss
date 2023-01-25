@@ -83,7 +83,20 @@
         
         }
 
-
+        .col{
+            @media (max-width:767px) {
+                width: 100%;
+                flex: auto;
+                margin-bottom: 10px;
+            }
+            &.ageBox-filter{
+                .col{
+                    @media (max-width:767px) {
+                        width: 49%;
+                    }
+                }
+            }
+        }
         .form-label {
             color: white;
             font-size: 14px;
@@ -128,6 +141,10 @@
 
             &:hover {
                 border-color: $med-light-pink;
+            }
+            @media (max-width:767px) {
+                margin: 20px auto -10px;
+                width: 100%;            
             }
         }
     }
@@ -262,6 +279,9 @@
                             white-space: nowrap;
                             margin-bottom: 0;
                             width: 90%;
+                            @media (max-width:767px) {                                
+                                width: 200px;
+                            }
                         }
                         a{
                             font-size: 14px;
