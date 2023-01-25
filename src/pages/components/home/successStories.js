@@ -25,7 +25,7 @@ function SuccessStories(props) {
                     <span className="grey-line"></span>
                 </div>
                 <Row className="successStories_timeLine">
-                    <Col md={8}>
+                    <Col md={8} className="successStories_timeLine_box">
                       <ListGroup as="ol" >
                             <FaHeart className="pink-heart" />
                             <FaHeart className="pink-heart" />

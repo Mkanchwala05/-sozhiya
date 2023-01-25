@@ -23,19 +23,19 @@ const ContactUs = () => {
                             </p>
                         </Col>
                         <Row className="contactPersonalDetail">
-                            <Col>
+                            <Col md={4} xs={12}>
 
                                 <h6> <TiLocation/> Address :  </h6>
                                 <p>8901 Nulla Pariatur, Ipsum, D05 87GR.
                                 </p>
                             </Col>
-                            <Col>
+                            <Col md={4} xs={12}>
 
                                 <h6> <TiPhone/> Telephones : </h6>
                                 <p> +1 800 245 4578 +1 800 789 5478
                                 </p>
                             </Col>
-                            <Col>
+                            <Col md={4} xs={12}>
 
                                 <h6> <TiMail/> E-mail : </h6>
                                 <p> contactus@sozhiyavellalarmarriage.com

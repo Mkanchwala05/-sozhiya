@@ -20,7 +20,7 @@
     .bannerContainer {
         height: 100%;
         position: relative;
-
+        
         &::after {
             content: '';
             background: url(../images/lord-img.svg) no-repeat center;
@@ -32,6 +32,15 @@
             background-size: contain;
             background-position: right bottom;
             height: 100%;
+            @media (max-width:767px) {
+                max-height: 53%;
+                width: 100%;
+                bottom: -15px;
+                background-position: center;
+                height: 70%;
+                left: 0;
+                right: auto;
+            }
         }
 
         .banner_info {
@@ -43,6 +52,12 @@
             flex-direction: column;
             align-items: baseline;
             justify-content: center;
+            @media (max-width:767px) {
+                align-items: center;
+                justify-content: start;
+                text-align: center;
+                padding-top: 25%;
+            }
 
             h2 {
                 font-size: 46px;
@@ -51,6 +66,9 @@
                 font-weight: 600;
                 // color: #fff;
                 // text-shadow: 0px 4px 6px #766e1a;
+                @media (max-width:767px) {
+                    font-size: 36px;
+                }
             }
 
             .createprofileBtn {
@@ -151,7 +169,7 @@
 }
 
 .grid_1 {
-    padding: 5em 0;
+    padding: 5em 0;  
 }
 
 .heart-divider {
@@ -194,12 +212,18 @@
 }
 
 .successStoriesPageUI {
+    @media (max-width:767px) {
+        padding: 0;    
+    }
     .successStories_timeLine{
         .list-group {
             border-left: 1px solid $gray-300;
             border-radius: 0;
             padding: 32px 0 32px 45px;
             position: relative;
+            @media (max-width:767px) {
+                padding: 22px 0 22px 15px;
+            }
             .pink-heart {
                 position: absolute;
                 top: -10px;
@@ -228,6 +252,11 @@
                     left: -46px;
                     position: absolute;
                     top: 7px;
+                    @media (max-width:767px) {
+
+                        width: 10px;
+                        left: -16px;
+                    }
                 }
     
                 span {
@@ -290,10 +319,17 @@
                 }
             }
         }
+        .successStories_timeLine_box{
+            @media (max-width:767px) {
+                margin-bottom: 30px;
+            }   
+        }
     }
-
     .religionListBox {
         margin-bottom: 32px;
+        @media (max-width:767px) {
+            margin-bottom: 20px;        
+        }
         .religionListCard {
             display: flex;
             flex-wrap: wrap;

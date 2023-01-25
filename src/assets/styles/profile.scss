@@ -154,6 +154,9 @@
                 border-radius: 0;
                 min-height: 42px;
                 margin-right: 3px;
+                @media (max-width:767px) {  
+                    font-size: 12px;
+                }
                 &.active,
                 &:hover{
                     background: $dark-bright-pink;

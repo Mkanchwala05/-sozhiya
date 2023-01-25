@@ -3,12 +3,21 @@
 .contacts_UI{
     .contacts_UIBody{
         padding: 5em 0;
+        @media (max-width:767px) {
+            padding: 2em 15px 0;       
+        }
         .contactDetailTxt{
+            @media (max-width:767px) {
+                padding-top: 1rem;
+            }
             p{
                 font-size: 14px;
                 color: $heading-text-color;
                 line-height: 1.7;
                 margin-bottom: 2rem;
+                @media (max-width:767px) {
+                    margin-bottom: 1rem;
+                }
             }
         }
         .contactPersonalDetail{
@@ -30,6 +39,9 @@
                 color: $heading-text-color;
                 line-height: 1.7;
                 margin-bottom: 2rem;
+                @media (max-width:767px) {
+                    margin-bottom: 1rem;
+                }
             }
         }
     }
