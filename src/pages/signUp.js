@@ -322,7 +322,7 @@ const community = [
 
 function SignUpPage() {
 
-  const url = "http://localhost:3000/users"
+  const url = "https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/usr_registration"
   const [data, setData] = useState({
     name: "",
     emailId: "",
@@ -1115,8 +1115,11 @@ function SignUpPage() {
                                   ( Eg:http://Yourblog.Com )
                                 </Form.Text>
                               </Form.Group>
+                              <Form.Group controlId="formFile" className="mb-3">
+                                <Form.Label> Upload your Horoscope image </Form.Label>
+                                <Form.Control type="file" className='horoscope_file'/>
+                              </Form.Group>
                             </div>
-
                           </div>
 
                         }
@@ -1124,7 +1127,7 @@ function SignUpPage() {
                       </div>
 
                       <div className="btn-component submitBtnBox">
-                        <input className='btn backBtn' type="button" value="Back" onClick={handleBack} disabled={steps[0].key === activeStep.key} />
+                        <Button className='btn backBtn' type="button" onClick={handleBack} disabled={steps[0].key === activeStep.key} > Back </Button>
                         <Button className={steps[steps.length - 1].key !== activeStep.key ? 'nextBtn' : 'd-none'} onClick={handleNext} > Next </Button>
                         <Button type='submit' value={submit} onClick={handleNext} disabled={steps[steps.length - 1].key !== activeStep.key} > Sign Up </Button>
                       </div>

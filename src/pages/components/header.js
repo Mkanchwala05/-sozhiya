@@ -5,11 +5,12 @@ import "../../assets/styles/header.scss"
 import LogoImage from "../../assets/images/logo.png"
 
 const Header = () => {
+   
     return (
         <>
             <Navbar expand="lg">
                 <Container className='navbar-container_ui'>
-                    <Link class="navbar-brand" to='/' > <img src={LogoImage} alt="logo" /> </Link> 
+                    <Link class="navbar-brand" to='/' > <img src={LogoImage} alt="logo" /> </Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end navbar-mobile-menu">
                         <Nav className="ms-auto">
@@ -33,6 +34,7 @@ const Header = () => {
                             {/* <Link className='nav-link signUpBtn' to="/login"> Login </Link> */}
 
                             {/* <Link to="/login"> Login </Link> */}
+                            {/* <div id="google_translate_element"></div> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Button, Row, Form, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { BsDash } from 'react-icons/bs';
 
 
 const gender = [
@@ -126,7 +127,7 @@ const HeroBanner = () => {
                                         <Col>
                                             <Form.Control type="text" placeholder="From" />
                                         </Col>
-                                        -
+                                        <BsDash/>
                                         <Col>
                                             <Form.Control type="text" placeholder="To" />
                                         </Col>
