@@ -1,11 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Tamil:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Tamil:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @import "./assets/styles/variable.scss";
 
-body{
-  font-family: 'Catamaran', sans-serif;
-  font-family: 'Noto Sans Tamil', sans-serif;
+body {
+  font-family: "Catamaran", sans-serif;
+  font-family: "Noto Sans Tamil", sans-serif;
 }
 
 .App {
@@ -47,25 +47,32 @@ body{
   }
 }
 
-.breadcrumb{
+.breadcrumb {
   margin-bottom: 2rem;
-  @media (max-width:767px) {
-    margin-bottom: 1rem;  
+  @media (max-width: 767px) {
+    margin-bottom: 1rem;
   }
-  .breadcrumb-item{
-    a{
-        color: $dark-bright-pink;
-        text-decoration: none;
+  .breadcrumb-item {
+    a {
+      color: $dark-bright-pink;
+      text-decoration: none;
     }
   }
 }
 
-.tabTitleTxt{
+.tabTitleTxt {
   color: $dark-bright-pink;
   font-size: 18px;
 }
-.tabDetailTxt{
+.tabDetailTxt {
   font-size: 14px;
   color: $gray-800;
-  line-height: 1.8em
+  line-height: 1.8em;
+}
+
+.errorMessage {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
 }
