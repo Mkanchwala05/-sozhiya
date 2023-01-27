@@ -1,77 +1,130 @@
 import React, { useState } from "react";
-import { Container, Row, Form, Button } from 'react-bootstrap';
+import { Container, Row, Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../assets/styles/login.scss";
-import LogoImage from "../assets/images/logo.png"
-import {useDispatch} from "react-redux"
-import {login} from "../authUser/userSlice"
+import LogoImage from "../assets/images/logo.png";
+import { useDispatch } from "react-redux";
+import { login } from "../store/auth/userSlice";
+import { Formik } from "formik";
+import * as yup from "yup";
+
+const validationSchema = yup.object({
+  email: yup.string().email("Invalid email").required("This field is required"),
+  password: yup.string().required("This field is required"),
+});
 
 const LoginPage = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  return (
+    <>
+      <div className="d-lg-flex half">
+        <div className="login-bg order-1 order-md-2"></div>
+        <div className="contents order-2 order-md-1">
+          <Container>
+            <Row className="align-items-center justify-content-center loginRowBox">
+              <div className="col-md-7 m-auto">
+                <Link to="/">
+                  <img src={LogoImage} alt="logo" className="logoImg" />
+                </Link>
 
-        dispatch(
-            login({
-                password: password,
-                email: email,
-                loggedIn: true,
-            })
-        );
-    };
+                <Formik
+                  initialValues={formData}
+                  validationSchema={validationSchema}
+                  onSubmit={async (values, { setSubmitting, resetForm }) => {
+                    setSubmitting(true);
+                    const data = {
+                      email: values.email,
+                      password: values.password,
+                    };
+                    const { payload } = await dispatch(login(data));
+                    console.log("payload", payload);
+                  }}
+                >
+                  {({
+                    values,
+                    errors,
+                    touched,
+                    handleBlur,
+                    handleChange,
+                    handleSubmit,
+                    isSubmitting,
+                    setFieldValue,
+                  }) => (
+                    <Form onSubmit={handleSubmit}>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter email"
+                          value={values.email}
+                          onChange={handleChange}
+                          name="email"
+                          onBlur={handleBlur}
+                        />
+                        {touched.email && errors.email ? (
+                          <div className="errorMessage">{errors.email}</div>
+                        ) : null}
+                      </Form.Group>
 
-    return (
-        <>
-            <div className="d-lg-flex half">
-                <div className="login-bg order-1 order-md-2"></div>
-                <div className="contents order-2 order-md-1">
-                    <Container>
-                        <Row className="align-items-center justify-content-center loginRowBox">
-                            <div className="col-md-7 m-auto">
-                                <Link to="/">
-                                    <img src={LogoImage} alt="logo" className="logoImg" />
-                                </Link>
+                      <Form.Group
+                        className="mb-3"
+                        controlId="formBasicPassword"
+                      >
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control
+                          type="password"
+                          placeholder="Password"
+                          value={values.password}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          name="password"
+                        />
 
-                                <Form onSubmit={(e) => handleSubmit(e)}>
-                                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label>Email address</Form.Label>
-                                        <Form.Control 
-                                            type="email" 
-                                            placeholder="Enter email"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)} />
-                                    </Form.Group>
+                        {touched.password && errors.password ? (
+                          <div className="errorMessage">{errors.password}</div>
+                        ) : null}
+                      </Form.Group>
 
-                                    <Form.Group className="mb-3" controlId="formBasicPassword">
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" placeholder="Password"
-                                            value={password}
-                                            onChange={(e) => setPassword(e.target.value)} />
-                                    </Form.Group>
-
-                                    <div className="d-flex justify-content-between">
-                                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                                            <Form.Check type="checkbox" label="Remember me" />
-                                        </Form.Group>
-                                        <Link to="/" className="forgetPswd"> Forget Password? </Link>
-                                    </div>
-                                    <Button variant="primary" type="submit">
-                                        Submit
-                                    </Button>
-                                    <p className="signUpTxt"> Not Registered yet? <Link to="/signUp"> Create an Account </Link> </p>
-                                </Form>
-                            </div>
-                        </Row>
-                    </Container>
-                </div>
-            </div>
-        </>
-    );
+                      <div className="d-flex justify-content-between">
+                        <Form.Group
+                          className="mb-3"
+                          controlId="formBasicCheckbox"
+                        >
+                          <Form.Check type="checkbox" label="Remember me" />
+                        </Form.Group>
+                        <Link to="/" className="forgetPswd">
+                          {" "}
+                          Forget Password?{" "}
+                        </Link>
+                      </div>
+                      <Button
+                        variant="primary"
+                        type="submit"
+                        disabled={isSubmitting}
+                      >
+                        Submit
+                      </Button>
+                      <p className="signUpTxt">
+                        {" "}
+                        Not Registered yet?{" "}
+                        <Link to="/signUp"> Create an Account </Link>{" "}
+                      </p>
+                    </Form>
+                  )}
+                </Formik>
+              </div>
+            </Row>
+          </Container>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default LoginPage;
