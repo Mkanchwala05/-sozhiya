@@ -3,9 +3,11 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import "../../assets/styles/header.scss"
 import LogoImage from "../../assets/images/logo.png"
+import { selectUser } from '../../store/auth/userSlice';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
-   
+    const user = useSelector(selectUser);
     return (
         <>
             <Navbar expand="lg">
@@ -30,11 +32,17 @@ const Header = () => {
                                 <Link class="dropdown-item" to="/send"> <span>   Sent </span> </Link>
                             </NavDropdown>
                             <Link class="nav-link" to="/contact-us"> Contact Us </Link>
-                            <Link className='nav-link loginBtn' to="/login"> Login </Link>
+                            {
+          
+                                user ?
+                                 
+                                <Link className='nav-link signUpBtn' to="/"> Logout </Link> 
+                                :
+                                <Link className='nav-link loginBtn' to="/login"> Login </Link>
+                            }
                             {/* <Link className='nav-link signUpBtn' to="/login"> Login </Link> */}
 
                             {/* <Link to="/login"> Login </Link> */}
-                            {/* <div id="google_translate_element"></div> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

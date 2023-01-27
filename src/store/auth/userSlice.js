@@ -16,7 +16,7 @@ export const login = createAsyncThunk("auth/login", async (data) => {
     console.log("response", response);
     if (response.status === 200) {
       return {
-        email: response.data.email,
+        EmailAddress: response.data.email,
         full_name: response.data.first_name,
         plan_type: response.data.plan_type,
         financial_plan: response.data.financial_plan,

@@ -417,6 +417,56 @@ const community = [
   { value: "Kongu Vellalar", label: "Kongu Vellalar" },
 ];
 
+const monthValue = [
+  { Value: "January", label: "January"},
+  { Value: "February", label: "February"},
+  { Value: "March", label: "March"},
+  { Value: "April", label: "April"},
+  { Value: "May", label: "May"},
+  { Value: "June", label: "June"},
+  { Value: "July", label: "July"},
+  { Value: "August", label: "August"},
+  { Value: "September", label: "September"},
+  { Value: "October", label: "October"},
+  { Value: "November", label: "November"},
+  { Value: "December", label: "December" }
+];
+
+const dayValue = [
+  { Value: "1", label: "1"},
+  { Value: "2", label: "2"},
+  { Value: "3", label: "3"},
+  { Value: "4", label: "4"},
+  { Value: "5", label: "5"},
+  { Value: "6", label: "6"},
+  { Value: "7", label: "7"},
+  { Value: "8", label: "8"},
+  { Value: "9", label: "9"},
+  { Value: "10", label: "10"},
+  { Value: "11", label: "11"},
+  { Value: "12", label: "12"},
+  { Value: "13", label: "13"},
+  { Value: "14", label: "14"},
+  { Value: "15", label: "15"},
+  { Value: "16", label: "16"},
+  { Value: "17", label: "17"},
+  { Value: "18", label: "18"},
+  { Value: "19", label: "19"},
+  { Value: "20", label: "20"},
+  { Value: "21", label: "21"},
+  { Value: "22", label: "22"},
+  { Value: "23", label: "23"},
+  { Value: "24", label: "24"},
+  { Value: "25", label: "25"},
+  { Value: "26", label: "26"},
+  { Value: "27", label: "27"},
+  { Value: "28", label: "28"},
+  { Value: "29", label: "29"},
+  { Value: "30", label: "30"},
+  { Value: "31", label: "31"},
+  
+];
+
 function SignUpPage() {
   const url =
     "https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/usr_registration";
@@ -594,7 +644,7 @@ function SignUpPage() {
                     };
                     const { payload } = await dispatch(register(data));
                     console.log("payload", payload);
-                    debugger;
+                    navigate("/profile/" + data.id);
                   }}
                 >
                   {({
@@ -1419,7 +1469,8 @@ function SignUpPage() {
                                       </div>
                                     ) : null}
                                     <Col className="inlineFromGrup mt-3">
-                                      <Form.Select
+                                      
+                                    <Form.Select
                                         aria-label="Default select example"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
@@ -1428,6 +1479,9 @@ function SignUpPage() {
                                       >
                                         <option selected="" value="0">
                                           -Year-
+                                        </option>
+                                        <option selected="" value="1">
+                                          90s
                                         </option>
                                       </Form.Select>
 
@@ -1438,9 +1492,16 @@ function SignUpPage() {
                                         value={values.month}
                                         name="month"
                                       >
-                                        <option selected="" value="0">
-                                          -Month-
-                                        </option>
+
+                                      <option value="0">Select</option>
+                                      {monthValue.map((item, i) => {
+                                        return (
+                                          <option key={i} value={item.value}>
+                                            {item.label}
+                                          </option>
+                                        );
+                                      })}
+                                        
                                       </Form.Select>
 
                                       <Form.Select
@@ -1450,9 +1511,14 @@ function SignUpPage() {
                                         value={values.days}
                                         name="days"
                                       >
-                                        <option selected="" value="0">
-                                          -Days-
-                                        </option>
+                                        <option value="0">Select</option>
+                                      {dayValue.map((item, i) => {
+                                        return (
+                                          <option key={i} value={item.value}>
+                                            {item.label}
+                                          </option>
+                                        );
+                                      })}
                                       </Form.Select>
                                     </Col>
                                     {touched.year && errors.year ? (

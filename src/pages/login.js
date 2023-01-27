@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/styles/login.scss";
 import LogoImage from "../assets/images/logo.png";
 import { useDispatch } from "react-redux";
@@ -9,14 +9,14 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 const validationSchema = yup.object({
-  email: yup.string().email("Invalid email").required("This field is required"),
-  password: yup.string().required("This field is required"),
+  EmailAddress: yup.string().email("Invalid email").required("This field is required"),
+  Password: yup.string().required("This field is required"),
 });
-
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    EmailAddress: "",
+    Password: "",
   });
 
   const dispatch = useDispatch();
@@ -39,11 +39,13 @@ const LoginPage = () => {
                   onSubmit={async (values, { setSubmitting, resetForm }) => {
                     setSubmitting(true);
                     const data = {
-                      email: values.email,
-                      password: values.password,
+                      EmailAddress: values.EmailAddress,
+                      Password: values.Password,
                     };
                     const { payload } = await dispatch(login(data));
                     console.log("payload", payload);
+                    navigate("/");
+
                   }}
                 >
                   {({
@@ -62,32 +64,32 @@ const LoginPage = () => {
                         <Form.Control
                           type="email"
                           placeholder="Enter email"
-                          value={values.email}
+                          value={values.EmailAddress}
                           onChange={handleChange}
-                          name="email"
+                          name="EmailAddress"
                           onBlur={handleBlur}
                         />
-                        {touched.email && errors.email ? (
-                          <div className="errorMessage">{errors.email}</div>
+                        {touched.EmailAddress && errors.EmailAddress ? (
+                          <div className="errorMessage">{errors.EmailAddress}</div>
                         ) : null}
                       </Form.Group>
 
                       <Form.Group
                         className="mb-3"
-                        controlId="formBasicPassword"
+                        controlId="formBasicpassword"
                       >
-                        <Form.Label>Password</Form.Label>
+                        <Form.Label>password</Form.Label>
                         <Form.Control
                           type="password"
-                          placeholder="Password"
-                          value={values.password}
+                          placeholder="password"
+                          value={values.Password}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          name="password"
+                          name="Password"
                         />
 
-                        {touched.password && errors.password ? (
-                          <div className="errorMessage">{errors.password}</div>
+                        {touched.Password && errors.Password ? (
+                          <div className="errorMessage">{errors.Password}</div>
                         ) : null}
                       </Form.Group>
 
@@ -100,7 +102,7 @@ const LoginPage = () => {
                         </Form.Group>
                         <Link to="/" className="forgetPswd">
                           {" "}
-                          Forget Password?{" "}
+                          Forget password?{" "}
                         </Link>
                       </div>
                       <Button
