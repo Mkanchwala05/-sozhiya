@@ -20,25 +20,25 @@ import { selectUser } from "./store/auth/userSlice";
 
 export default function App() {
   const user = useSelector(selectUser);
-  // const googleTranslateElementInit = () => {
-  //   setCookie("googtrans", "/ta", 1);
-  //   new window.google.translate.TranslateElement(
-  //     {
-  //       pageLanguage: "en",
-  //       layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-  //     },
-  //     "google_translate_element"
-  //   );
-  // };
-  // useEffect(() => {
-  //   var addScript = document.createElement("script");
-  //   addScript.setAttribute(
-  //     "src",
-  //     "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-  //   );
-  //   document.body.appendChild(addScript);
-  //   window.googleTranslateElementInit = googleTranslateElementInit;
-  // }, []);
+  const googleTranslateElementInit = () => {
+    setCookie("googtrans", "/ta", 1);
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "en",
+        layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+      },
+      "google_translate_element"
+    );
+  };
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
 
   function setCookie(key, value, expiry) {
     var expires = new Date();
