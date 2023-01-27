@@ -671,7 +671,8 @@ function SignUpPage() {
                                       placeholder="Password"
                                       onChange={handleChange}
                                       onBlur={handleBlur}
-                                      id="userPassword"
+                                      id="Password"
+                                      name="password"
                                       value={values.password}
                                     />
                                     {touched.password && errors.password ? (
@@ -689,10 +690,10 @@ function SignUpPage() {
                                     <Form.Label> Confirm Password </Form.Label>
                                     <Form.Control
                                       type="password"
-                                      placeholder="Password"
+                                      placeholder="Confirm Password"
                                       onChange={handleChange}
                                       onBlur={handleBlur}
-                                      id="ConfirmPassword"
+                                      id="confirmPassword"
                                       name="confirmPassword"
                                       value={values.confirmPassword}
                                     />
