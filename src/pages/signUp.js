@@ -672,6 +672,7 @@ function SignUpPage() {
                                       onChange={handleChange}
                                       onBlur={handleBlur}
                                       id="Password"
+                                      name="password"
                                       value={values.password}
                                     />
                                     {touched.password && errors.password ? (
