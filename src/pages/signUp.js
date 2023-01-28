@@ -543,7 +543,6 @@ function SignUpPage() {
                                             employerDetails: values.employerDetails,
                                             employedCountry: values.employedCountry,
                                             website: values.website,
-                                            id: '',
                                         };
                                         const { payload } = await dispatch(register(data));
                                         console.log("payload", payload);
@@ -1215,33 +1214,33 @@ function SignUpPage() {
                                                                                 name="star"
                                                                             >
                                                                                 <option value="0">Select</option>
-                                                                                <option value="17">Anusham</option>
-                                                                                <option value="1">Ashwini</option>
-                                                                                <option value="23">Avittam</option>
-                                                                                <option value="9">Ayilyam</option>
-                                                                                <option value="2">Bharani</option>
-                                                                                <option value="14">Chitrai</option>
-                                                                                <option value="13">Hastham</option>
-                                                                                <option value="18">Kettai</option>
-                                                                                <option value="3">Krittika</option>
-                                                                                <option value="10">Magam</option>
-                                                                                <option value="19">Moolam</option>
-                                                                                <option value="5">Mrigasira</option>
-                                                                                <option value="20">Pooradam</option>
-                                                                                <option value="11">Pooram</option>
-                                                                                <option value="25">Poorattadhi</option>
-                                                                                <option value="8">Poosam</option>
-                                                                                <option value="7">Punarpusam</option>
-                                                                                <option value="27">Revathi</option>
-                                                                                <option value="4">Rohini</option>
-                                                                                <option value="24">Sadhayam</option>
-                                                                                <option value="15">Swati</option>
-                                                                                <option value="6">Thiruvadirai</option>
-                                                                                <option value="22">Thiruvonam</option>
-                                                                                <option value="21">Uthiradam</option>
-                                                                                <option value="12">Uthiram</option>
-                                                                                <option value="26">Uthirattadhi</option>
-                                                                                <option value="16">Vishakham</option>
+                                                                                <option value="Anusham">Anusham</option>
+                                                                                <option value="Ashwini">Ashwini</option>
+                                                                                <option value="Avittam">Avittam</option>
+                                                                                <option value="Ayilyam">Ayilyam</option>
+                                                                                <option value="Bharani">Bharani</option>
+                                                                                <option value="Chitrai">Chitrai</option>
+                                                                                <option value="Hastham">Hastham</option>
+                                                                                <option value="Kettai">Kettai</option>
+                                                                                <option value="Krittika">Krittika</option>
+                                                                                <option value="Magam">Magam</option>
+                                                                                <option value="Moolam">Moolam</option>
+                                                                                <option value="Mrigasira">Mrigasira</option>
+                                                                                <option value="Pooradam">Pooradam</option>
+                                                                                <option value="Pooradam">Pooradam</option>
+                                                                                <option value="Poorattadhi">Poorattadhi</option>
+                                                                                <option value="Poosam">Poosam</option>
+                                                                                <option value="Punarpusam">Punarpusam</option>
+                                                                                <option value="Revathi">Revathi</option>
+                                                                                <option value="Rohini">Rohini</option>
+                                                                                <option value="Sadhayam">Sadhayam</option>
+                                                                                <option value="Swati">Swati</option>
+                                                                                <option value="Thiruvadirai">Thiruvadirai</option>
+                                                                                <option value="Thiruvonam">Thiruvonam</option>
+                                                                                <option value="Uthiradam">Uthiradam</option>
+                                                                                <option value="Uthiram">Uthiram</option>
+                                                                                <option value="Uthirattadhi">Uthirattadhi</option>
+                                                                                <option value="Vishakham">Vishakham</option>
                                                                             </Form.Select>
 
                                                                             {touched.star && errors.star ? (
