@@ -9,14 +9,14 @@ import { Formik } from "formik";
 import * as yup from "yup";
 
 const validationSchema = yup.object({
-  EmailAddress: yup.string().email("Invalid email").required("This field is required"),
-  Password: yup.string().required("This field is required"),
+  email: yup.string().email("Invalid email").required("This field is required"),
+  password: yup.string().required("This field is required"),
 });
 const LoginPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    EmailAddress: "",
-    Password: "",
+    email: "",
+    password: "",
   });
 
   const dispatch = useDispatch();
@@ -39,8 +39,8 @@ const LoginPage = () => {
                   onSubmit={async (values, { setSubmitting, resetForm }) => {
                     setSubmitting(true);
                     const data = {
-                      EmailAddress: values.EmailAddress,
-                      Password: values.Password,
+                      email: values.email,
+                      password: values.password,
                     };
                     const { payload } = await dispatch(login(data));
                     console.log("payload", payload);
@@ -64,13 +64,13 @@ const LoginPage = () => {
                         <Form.Control
                           type="email"
                           placeholder="Enter email"
-                          value={values.EmailAddress}
+                          value={values.email}
                           onChange={handleChange}
-                          name="EmailAddress"
+                          name="email"
                           onBlur={handleBlur}
                         />
-                        {touched.EmailAddress && errors.EmailAddress ? (
-                          <div className="errorMessage">{errors.EmailAddress}</div>
+                        {touched.email && errors.email ? (
+                          <div className="errorMessage">{errors.email}</div>
                         ) : null}
                       </Form.Group>
 
@@ -82,14 +82,14 @@ const LoginPage = () => {
                         <Form.Control
                           type="password"
                           placeholder="password"
-                          value={values.Password}
+                          value={values.password}
                           onChange={handleChange}
                           onBlur={handleBlur}
-                          name="Password"
+                          name="password"
                         />
 
-                        {touched.Password && errors.Password ? (
-                          <div className="errorMessage">{errors.Password}</div>
+                        {touched.password && errors.password ? (
+                          <div className="errorMessage">{errors.password}</div>
                         ) : null}
                       </Form.Group>
 
