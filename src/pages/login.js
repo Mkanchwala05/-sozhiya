@@ -15,7 +15,7 @@ const validationSchema = yup.object({
 const LoginPage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: "",
+    emailAddress: "",
     password: "",
   });
 
@@ -39,7 +39,7 @@ const LoginPage = () => {
                   onSubmit={async (values, { setSubmitting, resetForm }) => {
                     setSubmitting(true);
                     const data = {
-                      email: values.email,
+                      emailAddress: values.email,
                       password: values.password,
                     };
                     const { payload } = await dispatch(login(data));
@@ -69,8 +69,8 @@ const LoginPage = () => {
                           name="email"
                           onBlur={handleBlur}
                         />
-                        {touched.email && errors.email ? (
-                          <div className="errorMessage">{errors.email}</div>
+                        {touched.emailAddress && errors.emailAddress ? (
+                          <div className="errorMessage">{errors.emailAddress}</div>
                         ) : null}
                       </Form.Group>
 

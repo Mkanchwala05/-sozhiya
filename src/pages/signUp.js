@@ -447,6 +447,7 @@ function SignUpPage() {
         jobDetails: "",
         employerDetails: "",
         employedCountry: "",
+        website: "",
         id: "",
     });
 
@@ -541,6 +542,7 @@ function SignUpPage() {
                                             jobDetails: values.jobDetails,
                                             employerDetails: values.employerDetails,
                                             employedCountry: values.employedCountry,
+                                            website: values.website,
                                             id: '',
                                         };
                                         const { payload } = await dispatch(register(data));
@@ -1264,7 +1266,7 @@ function SignUpPage() {
                                                                                 value={values.padham}
                                                                                 name="padham"
                                                                             >
-                                                                                <option selected="selected" value="0">
+                                                                                <option selected value="0">
                                                                                     -Select-
                                                                                 </option>
                                                                                 <option value="1">1</option>
@@ -1349,7 +1351,7 @@ function SignUpPage() {
                                                                             value={values.jananaKaala}
                                                                             name="jananaKaala"
                                                                         >
-                                                                            <option selected="" value="0">
+                                                                            <option selected value="0">
                                                                                 -Select-
                                                                             </option>
                                                                             <option value="1">Surya</option>
