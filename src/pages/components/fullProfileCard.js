@@ -42,13 +42,13 @@ const FullPorfileCard = () => {
                                     <ListGroup.Item> <span> Profile Created By : </span>	<p> {curElem.createdBy} </p> </ListGroup.Item>
                                     <ListGroup.Item> <span> Education :</span>	<p> {curElem.education} </p> </ListGroup.Item>
                                 </ListGroup>
-                                <div>
-                                    <Button className="sndMailBtn"> Send Mail </Button>
-                                    <Button className="shortlistBtn">ShortListed</Button>
-                                    <Button className="sndInterestBtn"> Send Interest</Button>
-                                </div>
                             </div>
                         </Card.Body>
+                        <div className="ms-auto">
+                            <Button className="sndMailBtn"> Send Mail </Button>
+                            <Button className="shortlistBtn">ShortListed</Button>
+                            <Button className="sndInterestBtn"> Send Interest</Button>
+                        </div>
                     </Card>
                 ) 
             })

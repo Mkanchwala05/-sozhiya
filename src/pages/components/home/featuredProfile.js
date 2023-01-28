@@ -10,7 +10,7 @@ function FeaturedProfile(props) {
     const [users, setUsers] = useState([]);
 
     const getUsers = async () => {
-        const response = await fetch('http://localhost:3000/users');
+        const response = await fetch (`http://localhost:3000/users`)
         setUsers(await response.json());
     }
 

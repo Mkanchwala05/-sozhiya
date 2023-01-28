@@ -12,7 +12,7 @@ import axios from "axios";
 const UserProfile = (props) => {
 
   const {id} = useParams ()
-  const url =`https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/usr_registration/${id}`
+  const url =`http://localhost:3000/users/${id}`
   const [users, setUsers] = useState(null)
   
     let content = null

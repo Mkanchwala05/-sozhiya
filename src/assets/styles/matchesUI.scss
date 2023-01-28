@@ -94,10 +94,10 @@
                             }
                         }
                     }
-                    .btn{
-                        @include shortBtn;
-                    }
                 }
+            }
+            .btn{
+                @include shortBtn;
             }
         }
         .match_right{
