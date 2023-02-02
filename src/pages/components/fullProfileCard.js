@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, ListGroup } from 'react-bootstrap';
-import { getUserInfo } from "../../store/auth/userList";
-import { useSelector, useDispatch } from "react-redux";
+import { Card, Button, ListGroup, Col } from 'react-bootstrap';
 import axios from "axios";
+import SorryMsg from "../../assets/images/sorry.png"
 
 
 function FullPorfileCard(props) {
@@ -29,13 +28,18 @@ function FullPorfileCard(props) {
         };
         getData();
       }, []);
-
+      if (users === null) {
+        return (
+            <Col className="d-flex justify-content-center">            
+                <img src={SorryMsg} alt=""/>
+            </Col>
+        );
+      }
     return (
         <>
             {error && (
                 <div>{`There is a problem fetching the post data - ${error}`}</div>
             )}
-
             {loading && <div>A moment please...</div>}
             <div>
                 {users.data &&

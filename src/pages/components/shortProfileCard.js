@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {Card, Button}  from 'react-bootstrap';
+import {Card, Button, Col}  from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaGooglePlusG } from 'react-icons/fa';
 import axios from "axios";
+import SorryMsg from "../../assets/images/sorry.png"
 
 const ShortProfileCrad = (props) =>{
     const [shortProfileUser , setShortProfileUser] = useState([]);
@@ -27,6 +28,14 @@ const ShortProfileCrad = (props) =>{
         };
         getData();
       }, []);
+
+      if (shortProfileUser === null) {
+        return (
+            <Col className="d-flex justify-content-center">            
+                <img src={SorryMsg} alt=""/>
+            </Col>
+        );
+      }
 
    return(
     <>

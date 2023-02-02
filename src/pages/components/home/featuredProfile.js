@@ -1,15 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Container, Card } from 'react-bootstrap';
+import { Container, Card, Col } from 'react-bootstrap';
 import { FaHeart } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-// import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import SorryMsg from "../../../assets/images/sorryNoData.png"
 
 function FeaturedProfile(props) {
     const [users, setUser] = useState([]);
     const [error, setError] = useState(null);
+
+    const [length, setLength] = useState('0');
 
     const [loading, setLoading] = useState();
 
@@ -50,7 +51,8 @@ function FeaturedProfile(props) {
         }
     };
 
-      const length = users.length;
+    //   const length = users.length(0);
+
     return (
         <>
             <div className="featureProfilePageUI grid_1">
@@ -62,40 +64,46 @@ function FeaturedProfile(props) {
                         <FaHeart className="grey-heart" />
                         <span className="grey-line"></span>
                     </div>
-                    {length !==0 && (
+                    {users && users.length === 0 ?
+                        (
+                                <Col className="d-flex justify-content-center">            
+                                    <img src={SorryMsg} alt=""/>
+                                </Col>
+                            ) : (
 
-                    <Carousel
-                        swipeable={false}
-                        draggable={false}
-                        responsive={responsive}
-                        ssr={true} // means to render carousel on server-side.
-                        // infinite={true}
-                        // // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                        autoPlaySpeed={1000}
-                        keyBoardControl={true}
-                        customTransition="all .5s"
-                    >
-                        {users.data.map((curElem, index) => {
-                                return (
-                                    <div onClick={"/profile/" + curElem.usr_id}>
-                                        <Card key={index} >
-                                            <div className="featureProfile_card_image">
-                                                <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
+                            <Carousel
+                                swipeable={false}
+                                draggable={false}
+                                responsive={responsive}
+                                ssr={true} // means to render carousel on server-side.
+                                // infinite={true}
+                                // // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                                autoPlaySpeed={1000}
+                                keyBoardControl={true}
+                                customTransition="all .5s"
+                            >
+                                {users.data &&
+                                    users.data.map((curElem, index) => {
+                                        return (
+                                            <div onClick={"/profile/" + curElem.usr_id}>
+                                                <Card key={index} >
+                                                    <div className="featureProfile_card_image">
+                                                        <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
+                                                    </div>
+                                                    <Card.Body>
+                                                        <Card.Title>  {curElem.usr_name} {curElem.usr_id + 21000} </Card.Title>
+                                                        <Card.Text>
+                                                            {curElem.usr_name}
+                                                        </Card.Text>
+                                                    </Card.Body>
+                                                </Card>
                                             </div>
-                                            <Card.Body>
-                                                <Card.Title>  {curElem.usr_name} {curElem.usr_id + 21000} </Card.Title>
-                                                <Card.Text>
-                                                    {curElem.usr_name}
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </div>
-                                )
-                            })
-                        }
-                    </Carousel>
-                    )
-                }
+                                        )
+                                    })
+                                }
+                            </Carousel>
+                        )
+                    }
                 </Container>
             </div>
         </>
