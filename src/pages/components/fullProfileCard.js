@@ -50,7 +50,7 @@ function FullPorfileCard(props) {
                                 <Card.Body>
                                 <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
                                 <div className="userDescription">
-                                    <small> Last Login : undefined
+                                    <small> Last Login : {curElem.usr_updatedate}
                                     </small>
                                     <p> {curElem.subject} <br />
                                         More....</p>

@@ -449,6 +449,7 @@ function SignUpPage() {
         employedCountry: "",
         website: "",
         id: "",
+        userPhoto: "",
     });
 
     const [steps, setSteps] = useState([
@@ -543,10 +544,14 @@ function SignUpPage() {
                                             employerDetails: values.employerDetails,
                                             employedCountry: values.employedCountry,
                                             website: values.website,
+                                            userPhoto: values.file.name, 
+                                            type: values.file.type,
+                                            size: `${values.file.size} bytes`
+                                            
                                         };
                                         const { payload } = await dispatch(register(data));
                                         console.log("payload", payload);
-                                        navigate("/profile/" + data.id);
+                                        navigate("/profile/" + data.usr_id);
                                     }}
                                 >
                                     {({
@@ -2384,6 +2389,10 @@ function SignUpPage() {
                                                                         <Form.Control
                                                                             type="file"
                                                                             className="horoscope_file"
+                                                                            onChange={(event) => {
+                                                                                setFieldValue("file", event.currentTarget.files[0]);
+                                                                              }}
+                                                                            name="file"
                                                                         />
                                                                     </Form.Group>
                                                                 </div>
