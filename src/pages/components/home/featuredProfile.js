@@ -53,6 +53,26 @@ function FeaturedProfile(props) {
 
     //   const length = users.length(0);
 
+    if (!users) {
+        return (
+            <>
+                <div className="featureProfilePageUI grid_1">
+                    <Container>
+                        <h2 className="text-center"> Featured Profiles </h2>
+                        <div className="heart-divider">
+                            <span className="grey-line"></span>
+                            <FaHeart className="pink-heart" />
+                            <FaHeart className="grey-heart" />
+                            <span className="grey-line"></span>
+                        </div>
+                        <Col className="d-flex justify-content-center">
+                            <img src={SorryMsg} alt="" />
+                        </Col>
+                    </Container>
+                </div>
+            </>
+        )
+    }
     return (
         <>
             <div className="featureProfilePageUI grid_1">
@@ -64,12 +84,12 @@ function FeaturedProfile(props) {
                         <FaHeart className="grey-heart" />
                         <span className="grey-line"></span>
                     </div>
-                    {users && users.length === 0 ?
+                    {users.length === 0 ?
                         (
-                                <Col className="d-flex justify-content-center">            
-                                    <img src={SorryMsg} alt=""/>
-                                </Col>
-                            ) : (
+                            <Col className="d-flex justify-content-center">
+                                <img src={SorryMsg} alt="" />
+                            </Col>
+                        ) : (
 
                             <Carousel
                                 swipeable={false}
