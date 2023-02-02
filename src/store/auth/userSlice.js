@@ -11,18 +11,16 @@ export const login = createAsyncThunk("auth/login", async (data) => {
   try {
     const response = await axios.post(
       `https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/login`,
-      data
+      data,
     );
     console.log("response", response);
     if (response.status === 200) {
       return {
         EmailAddress: response.data.email,
-        full_name: response.data.first_name,
-        plan_type: response.data.plan_type,
-        financial_plan: response.data.financial_plan,
         refresh: response.data.refresh,
         access: response.data.access,
       };
+      
     } else {
       return new Error();
     }

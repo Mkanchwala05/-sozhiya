@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Container, Card } from 'react-bootstrap';
 import { FaHeart } from "react-icons/fa";
@@ -7,15 +8,27 @@ import "react-multi-carousel/lib/styles.css";
 // import { Link } from "react-router-dom";
 
 function FeaturedProfile(props) {
-    const [users, setUsers] = useState([]);
+    const [users, setUser] = useState([]);
+    const [error, setError] = useState(null);
 
-    const getUsers = async () => {
-        const response = await fetch (`http://localhost:3000/users`)
-        setUsers(await response.json());
-    }
+    const [loading, setLoading] = useState();
 
     useEffect(() => {
-        getUsers();
+        const getData = async () => {
+            try {
+                const response = await axios.get(
+                    `https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/getUsersList`,
+                );
+                setUser(response.data);
+                setError(null);
+            } catch (err) {
+                setError(err.message);
+                setUser(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+        getData();
     }, []);
 
     const responsive = {
@@ -36,6 +49,8 @@ function FeaturedProfile(props) {
             items: 2
         }
     };
+
+      const length = users.length;
     return (
         <>
             <div className="featureProfilePageUI grid_1">
@@ -47,6 +62,8 @@ function FeaturedProfile(props) {
                         <FaHeart className="grey-heart" />
                         <span className="grey-line"></span>
                     </div>
+                    {length !==0 && (
+
                     <Carousel
                         swipeable={false}
                         draggable={false}
@@ -58,28 +75,27 @@ function FeaturedProfile(props) {
                         keyBoardControl={true}
                         customTransition="all .5s"
                     >
-                        {users.map((curElem) => {
-                            return (
-                                <div onClick={"/profile/"+ curElem.id}>
-                                    <Card key={curElem.id} >
-                                        <div className="featureProfile_card_image">
-                                            <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
-                                        </div>
-                                        <Card.Body>
-                                            <Card.Title>  {curElem.name} {curElem.id + 21000} </Card.Title>
-                                            <Card.Text>
-                                                {curElem.name}
-                                            </Card.Text>
-                                            {/* </Card.Text>
-                                                {post.storydesignation}
-                                            </Card.Text> */}
-                                        </Card.Body>
-                                    </Card>
-                                </div>
-                            )
-                        })
+                        {users.data.map((curElem, index) => {
+                                return (
+                                    <div onClick={"/profile/" + curElem.usr_id}>
+                                        <Card key={index} >
+                                            <div className="featureProfile_card_image">
+                                                <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
+                                            </div>
+                                            <Card.Body>
+                                                <Card.Title>  {curElem.usr_name} {curElem.usr_id + 21000} </Card.Title>
+                                                <Card.Text>
+                                                    {curElem.usr_name}
+                                                </Card.Text>
+                                            </Card.Body>
+                                        </Card>
+                                    </div>
+                                )
+                            })
                         }
                     </Carousel>
+                    )
+                }
                 </Container>
             </div>
         </>

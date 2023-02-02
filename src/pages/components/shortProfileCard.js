@@ -1,29 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {Card, Button}  from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaGooglePlusG } from 'react-icons/fa';
+import axios from "axios";
 
 const ShortProfileCrad = (props) =>{
-    const [users, setUsers ] = useState([]);
+    const [shortProfileUser , setShortProfileUser] = useState([]);
+    const [error, setError] = useState(null);
 
-    const getUsers = async () => {
-        const response = await fetch('http://localhost:3000/users');
-        setUsers(await response.json());
-    }
+    const [loading, setLoading] = useState();
 
     useEffect(() => {
-        getUsers();
-    }, []);
+        const getData = async () => {
+          try {
+            const response = await axios.get(
+                `https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/getUsersList`,
+            );
+            setShortProfileUser(response.data);
+            setError(null);
+          } catch (err) {
+            setError(err.message);
+            setShortProfileUser(null);
+          } finally {
+            setLoading(false);
+          }
+        };
+        getData();
+      }, []);
 
    return(
     <>
-         {users.map((curElem) =>   {
+        {shortProfileUser.data &&
+        shortProfileUser.data.map((curElem, index) => {
                  return(
-            <Card  key={curElem.id}>
+            <Card key={index}>
                 <Card.Body>
                     <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
                     <div className="userDescription"> 
-                        <h4> {curElem.name} {curElem.id + 21000}
+                        <h4> {curElem.usr_name} {curElem.usr_id + 21000}
                             <div className="socialIcons">
                                 <Link  to="/" > <FaFacebookF/> </Link>
                                 <Link  to="/" > <FaTwitter/> </Link>
@@ -32,12 +46,12 @@ const ShortProfileCrad = (props) =>{
                         </h4>
                         <small> Last Login : {curElem.userLastSeen} </small>
                         <p> 
-                            <b> Sex :  </b> {curElem.sex} | 
-                            <b> Religion : </b> {curElem.kulam} |
-                            <b> Education : </b> {curElem.education} |
-                            <b> Location  : </b> {curElem.employedCountry}
+                            <b> Sex :  </b> {curElem.usr_gender} | 
+                            <b> Religion : </b> {curElem.usr_kothram} |
+                            <b> Education : </b> {curElem.usr_education}|
+                            <b> Location  : </b> {curElem.usr_country}
                         </p>
-                        <Link to={"/profile/"+ curElem.id}> view full profile </Link>
+                        <Link to={"/profile/"+ curElem.usr_id}> view full profile </Link>
                     </div>                                   
                 </Card.Body>
                 <Card.Footer>
