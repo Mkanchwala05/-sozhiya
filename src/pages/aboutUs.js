@@ -27,8 +27,9 @@ const AboutUs = () => {
                             </p>
                         </Col>
                     </Row>
-                    <Row className="clientTestimonial ">
-                    <Col xl={6} className="clientTestimonial_UI">
+                    <Row className="clientTestimonial" id="storyClient">
+
+                    <Col xl={6} className="clientTestimonial_UI" >
                             <Carousel>
                                 <Carousel.Item>
                                     <img

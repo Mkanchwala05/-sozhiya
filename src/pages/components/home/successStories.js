@@ -37,9 +37,9 @@ function SuccessStories(props) {
                                         <Card.Body>
                                             <Card.Title> {post.storytitle} </Card.Title>
                                             <Card.Text>
-                                            {post.storyText}
+                                                {post.storyText}
                                             </Card.Text>
-                                            <Link  to="/">Read More... </Link>
+                                            <Link className="linkBtn" to="/about-us">Read More... </Link>
                                         </Card.Body>
                                     </Card>
                                 </ListGroup.Item>
@@ -61,13 +61,13 @@ function SuccessStories(props) {
                         <div className="religionListBox">                        
                             <h4> Country : </h4>
                             <div className="religionListCard">
-                                <Link  to="/"> India  </Link>
-                                <Link  to="/"> Australia  </Link>
-                                <Link  to="/"> Russia   </Link>
-                                <Link  to="/"> India   </Link>
-                                <Link  to="/"> Kuwait   </Link>
-                                <Link  to="/"> Uk    </Link>
-                                <Link  to="/" className="linkBtn"> View All   </Link>
+                                <Link  to="/viewed-profile"> India  </Link>
+                                <Link  to="/viewed-profile"> Australia  </Link>
+                                <Link  to="/viewed-profile"> Russia   </Link>
+                                <Link  to="/viewed-profile"> India   </Link>
+                                <Link  to="/viewed-profile"> Kuwait   </Link>
+                                <Link  to="/viewed-profile"> Uk    </Link>
+                                <Link  to="/viewed-profile" className="linkBtn"> View All   </Link>
 
                             </div>
                         </div>

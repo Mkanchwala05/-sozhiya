@@ -4,6 +4,7 @@ import { Container, Card, Col } from 'react-bootstrap';
 import { FaHeart } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 import SorryMsg from "../../../assets/images/sorryNoData.png"
 
 function FeaturedProfile(props) {
@@ -105,7 +106,7 @@ function FeaturedProfile(props) {
                                 {users.data &&
                                     users.data.map((curElem, index) => {
                                         return (
-                                            <div onClick={"/profile/" + curElem.usr_id}>
+                                            <Link to="/matches">
                                                 <Card key={index} >
                                                     <div className="featureProfile_card_image">
                                                         <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />
@@ -117,7 +118,7 @@ function FeaturedProfile(props) {
                                                         </Card.Text>
                                                     </Card.Body>
                                                 </Card>
-                                            </div>
+                                            </Link>
                                         )
                                     })
                                 }
