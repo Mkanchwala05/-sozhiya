@@ -5,6 +5,7 @@ const initialState = {
   login: null,
   register: null,
   token: null,
+  logout: undefined,
 };
 
 export const login = createAsyncThunk("auth/login", async (data) => {
@@ -29,6 +30,23 @@ export const login = createAsyncThunk("auth/login", async (data) => {
   }
 });
 
+export const verifyToken = createAsyncThunk(
+  "auth/verifyToken",
+  async (token) => {
+    try {
+      const response = await axios.post(
+        `https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/login`,
+        {
+          token: token,
+        }
+      );
+      return { status: true, data: response.data };
+    } catch (error) {
+      return { status: false, error: error };
+    }
+  }
+);
+
 export const register = createAsyncThunk("auth/register", async (data) => {
   try {
     const response = await axios.post(
@@ -50,11 +68,8 @@ export const userSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {
-    // login: (state, action) => {
-    //   state.user = action.payload;
-    // },
     logout: (state) => {
-      state.login = null;
+      state.login = true;
       state.register = null;
       state.token = null;
     },
@@ -65,6 +80,7 @@ export const userSlice = createSlice({
         state.login = {
           isLoading: true,
         };
+        state.logout = undefined;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.login = {
@@ -82,6 +98,7 @@ export const userSlice = createSlice({
         state.register = {
           isLoading: true,
         };
+        state.logout = undefined;
       })
       .addCase(register.fulfilled, (state, action) => {
         state.register = {
@@ -94,7 +111,21 @@ export const userSlice = createSlice({
           isLoading: false,
           isError: action?.error,
         };
-      });
+      })
+      .addCase(verifyToken.pending, (state) => {
+        state.verifyToken = {};
+        state.verifyToken.loading = true;
+      })
+      .addCase(verifyToken.fulfilled, (state, action) => {
+        state.verifyToken = {};
+        state.verifyToken.loading = false;
+        state.verifyToken.token = action.payload;
+      })
+      .addCase(verifyToken.rejected, (state, action) => {
+        state.verifyToken = {};
+        state.verifyToken.loading = false;
+        state.verifyToken.error = action.payload;
+      })
   },
 });
 

@@ -106,7 +106,7 @@ function FeaturedProfile(props) {
                                 {users.data &&
                                     users.data.map((curElem, index) => {
                                         return (
-                                            <Link to="/matches">
+                                            <Link to="/matches" className="text-decoration-none">
                                                 <Card key={index} >
                                                     <div className="featureProfile_card_image">
                                                         <Card.Img variant="top" src={"https://plchldr.co/i/245x155?bg=EB6361"} />

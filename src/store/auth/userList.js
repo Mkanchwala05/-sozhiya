@@ -2,63 +2,61 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const initialState = {
-  login: null,
-  register: null,
+  getUserInfo: undefined,
   token: null,
-  getUserInfo: null,
 };
 
 export const getUserInfo = createAsyncThunk(
-    "/matches",
+    "auth/matches",
     async (data) => {
       try {
         const response = await axios.get(
             `https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/getUsersList`,
             data,
         );
-        // console.log("response", response);
+        console.log("response", response);
         if (response.status === 200) {
           return {
-            usr_id:   response.data.id,
-            usr_email:  response.data.emailAddress,
-            usr_password:  response.data.password,
-            usr_name:  response.data.name,
-            usr_gender:  response.data.sex,
-            usr_image:  response.data.image,
-            usr_dob:  response.data.dob,
-            usr_marital_status:  response.data.maritalStatus,
-            usr_contact_person:  response.data.contactPerson,
-            usr_mobile:  response.data.phoneNumber,
-            usr_alternate_number:  response.data.alternativeNumber,
-            usr_kothram:  response.data.kulam,
-            usr_vellalar_sub_caste:  response.data.communityName,
-            usr_created_by:  response.data.createdBy,
-            usr_profile:  response.data.profile,
-            usr_birth_time:  response.data.timeOfBirth,
-            usr_birth_day:  response.data.dayofBirth,
-            usr_birth_place:  response.data.placeofBirth,
-            usr_rasi:  response.data.rasi,
-            usr_star:  response.data.star,
-            usr_padham:  response.data.padham,
-            usr_lagnam:  response.data.lagnam,
-            usr_janana_kaala_thisai:  response.data.jananaKaala,
-            usr_sevvai:  response.data.sevvai,
-            usr_raaghu:  response.data.raaghu,
-            usr_education:  response.data.education,
-            usr_education_details:  response.data.education_details,
-            usr_college:  response.data.college,
-            usr_occupation:  response.data.occupation,
-            usr_job_title:  response.data.jobDetails,
-            usr_employer_details:  response.data.employerDetails,
-            usr_current_employed_country:  response.data.employedCountry,
-            usr_income:  response.data.income,
-            usr_address:  response.data.address,
-            usr_country:  response.data.country,
-            usr_state:  response.data.state,
-            usr_city:  response.data.city,
-            usr_living_country:  response.data.living_country,
-            usr_native:  response.data.native,
-            usr_personal_website:  response.data.website,
+            usr_id: response?.data?.results[0]?.usr_id,
+            usr_email:response?.data?.results[0]?.usr_email,
+            usr_password:response?.data?.results[0]?.usr_password,
+            usr_name:response?.data?.results[0]?.usr_name,
+            usr_gender:response?.data?.results[0]?.usr_gender,
+            usr_image:response?.data?.results[0]?.usr_image,
+            usr_dob:response?.data?.results[0]?.usr_dob,
+            usr_marital_status:response?.data?.results[0]?.usr_marital_status,
+            usr_contact_person:response?.data?.results[0]?.usr_contact_person,
+            usr_mobile:response?.data?.results[0]?.usr_mobile,
+            usr_alternate_number:response?.data?.results[0]?.usr_alternate_number,
+            usr_kothram:response?.data?.results[0]?.usr_kothram,
+            usr_vellalar_sub_caste:response?.data?.results[0]?.usr_vellalar_sub_caste,
+            usr_created_by:response?.data?.results[0]?.usr_created_by,
+            usr_profile:response?.data?.results[0]?.usr_profile,
+            usr_birth_time:response?.data?.results[0]?.usr_birth_time,
+            usr_birth_day:response?.data?.results[0]?.usr_birth_day,
+            usr_birth_place:response?.data?.results[0]?.usr_birth_place,
+            usr_rasi:response?.data?.results[0]?.usr_rasi,
+            usr_star:response?.data?.results[0]?.usr_star,
+            usr_padham:response?.data?.results[0]?.usr_padham,
+            usr_lagnam:response?.data?.results[0]?.usr_lagnam,
+            usr_janana_kaala_thisai:response?.data?.results[0]?.usr_janana_kaala_thisai,
+            usr_sevvai:response?.data?.results[0]?.usr_sevvai,
+            usr_raaghu:response?.data?.results[0]?.usr_raaghu,
+            usr_education:response?.data?.results[0]?.usr_education,
+            usr_education_details:response?.data?.results[0]?.usr_education_details,
+            usr_college:response?.data?.results[0]?.usr_college,
+            usr_occupation:response?.data?.results[0]?.usr_occupation,
+            usr_job_title:response?.data?.results[0]?.usr_job_title,
+            usr_employer_details:response?.data?.results[0]?.usr_employer_details,
+            usr_current_employed_country:response?.data?.results[0]?.usr_current_employed_country,
+            usr_income:response?.data?.results[0]?.usr_income,
+            usr_address:response?.data?.results[0]?.usr_address,
+            usr_country:response?.data?.results[0]?.usr_country,
+            usr_state:response?.data?.results[0]?.usr_state,
+            usr_city:response?.data?.results[0]?.usr_city,
+            usr_living_country:response?.data?.results[0]?.usr_living_country,
+            usr_native:response?.data?.results[0]?.usr_native,
+            usr_personal_website:response?.data?.results[0]?.usr_personal_website,
           };
         } else {
           return new Error();
@@ -72,7 +70,12 @@ export const getUserInfo = createAsyncThunk(
   export const userListSlice = createSlice({
     name: "userList",
     initialState,
-    reducers: {},
+    reducers: {
+      clearUserInfo: (state) => {
+        state.getUserInfo = undefined;
+        state.token = null;
+      },
+    },
     extraReducers(build) {
       build
         .addCase(getUserInfo.pending, (state) => {
@@ -95,6 +98,6 @@ export const getUserInfo = createAsyncThunk(
     },
 });
 
-export const { disableModal } = userListSlice.actions;
+export const { clearUserInfo } = userListSlice.actions;
 
 export default userListSlice.reducer;

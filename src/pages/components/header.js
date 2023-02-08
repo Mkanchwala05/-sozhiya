@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import "../../assets/styles/header.scss"
 import LogoImage from "../../assets/images/logo.png"
-import { selectUser } from '../../store/auth/userSlice';
-import { useSelector } from 'react-redux';
+import { logout } from '../../store/auth/userSlice';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
-    const user = useSelector(selectUser);
+            
+    const [userInfo, setUser] = useState(false);
+    const dispatch = useDispatch();
+
+    const handleLogout = () => {
+        dispatch(logout(
+            setUser(false)
+        ));
+        localStorage.removeItem('Token');
+        window.location.href = '/';
+    }
+
     return (
         <>
             <Navbar expand="lg">
@@ -32,17 +43,16 @@ const Header = () => {
                                 <Link className="dropdown-item" to="/send"> <span>   Sent </span> </Link>
                             </NavDropdown>
                             <Link className="nav-link" to="/contact-us"> Contact Us </Link>
-                            {
-          
-                                user ?
+                            { userInfo ?
                                  
-                                <Link className='nav-link signUpBtn' to="/"> Logout </Link> 
+                                <Link className='nav-link signUpBtn' to="/"
+                                    onClick={() => {
+                                        handleLogout();
+                                    }}
+                                  > Logout </Link> 
                                 :
                                 <Link className='nav-link loginBtn' to="/login"> Login </Link>
                             }
-                            {/* <Link className='nav-link signUpBtn' to="/login"> Login </Link> */}
-
-                            {/* <Link to="/login"> Login </Link> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

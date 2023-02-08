@@ -110,7 +110,7 @@
             &.ageBox-filter{
                 .col{
                     @media (max-width:767px) {
-                        width: 49%;
+                        width: 47%;
                         margin-bottom: 0;
                     }
                 }
@@ -375,6 +375,7 @@
                 border-color: transparent;
                 border-radius: 0px;
                 transition: all 0.3s ease-in ;
+                text-decoration: none;
 
                 &:hover{
                     border:1px solid $med-light-pink;
@@ -404,6 +405,8 @@
                         font-size: 13px;
                         line-height: normal;
                         color: $bright-pink;
+                        text-decoration: none;
+
                     }
                     .card-text {
                         margin-bottom: 5px;
