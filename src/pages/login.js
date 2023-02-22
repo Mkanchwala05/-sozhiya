@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Form, Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../assets/styles/login.scss";
 import LogoImage from "../assets/images/logo.png";
 import { useDispatch } from "react-redux";
@@ -18,9 +18,10 @@ const LoginPage = () => {
     emailAddress: "",
     password: "",
   });
-
+  
   const dispatch = useDispatch();
-
+  const {usr_id} = useParams ()
+  
   return (
     <>
       <div className="d-lg-flex half">
@@ -44,7 +45,7 @@ const LoginPage = () => {
                     };
                     const { payload } = await dispatch(login(data));
                     console.log("payload", payload);
-                    navigate("/");
+                    navigate(`/profile/${usr_id}`);
 
                   }}
                 >

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button, Row, Form, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { BsDash } from 'react-icons/bs';
 
 
@@ -66,7 +66,7 @@ const state = [
 
 
 
-const HeroBanner = () => {
+const HeroBanner = (props) => {
     const navigate = useNavigate();
 
     const navigateSignUp = () => {
@@ -76,6 +76,26 @@ const HeroBanner = () => {
     const navigateMatches = () => {
         navigate('/matches');
     };
+
+    const [genders, setGenders] = useState('');
+    const [location, setLocation] = useState('');
+
+
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      let params = setSearchParams();
+    //   const gender = searchParams.get('g');
+    //   const location = searchParams.get('l');
+      setSearchParams(params);
+        navigate({
+            pathname: '/matches',
+            search: `?${setSearchParams(params)}`,
+        });
+    }
+//   const params = { sort: 'date', order: 'newest' };
+
 
     return (
         <>
@@ -90,11 +110,16 @@ const HeroBanner = () => {
                 </Container>
                 <div className="banner_info_form">
                     <Container>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Row className="mb-3 align-items-end ">
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label> I am looking for </Form.Label>
-                                    <Form.Select defaultValue="Choose...">
+                                    <Form.Select
+                                        // value={genders}
+                                         onChange={(e) => {
+                                            setSearchParams({q:e.target.value});
+                                        }}
+                                    >
                                         <option selected > Select Gender</option>
                                         {gender.map((item, i) => {
                                             return <option key={i} value={item.value}>{item.label}</option>
@@ -103,7 +128,12 @@ const HeroBanner = () => {
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label> Located In </Form.Label>
-                                    <Form.Select defaultValue="Choose...">
+                                    <Form.Select 
+                                        // value={location}
+                                        onChange={(e) => {
+                                            setSearchParams({l:e.target.value});
+                                        }}
+                                    >
                                         <option selected >Select State</option>
                                         {state.map((item, i) => {
                                             return <option key={i} value={item.value}>{item.label}</option>
@@ -113,7 +143,12 @@ const HeroBanner = () => {
 
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label> Interested In </Form.Label>
-                                    <Form.Select defaultValue="Choose...">
+                                    <Form.Select
+                                         value={genders}
+                                         onChange={(e) => {
+                                            setSearchParams({q:e.target.value});
+                                        }}
+                                    >
                                         <option>Select Interest</option>
                                         {Interest.map((item, i) => {
                                             return <option key={i} value={item.value}>{item.label}</option>
@@ -135,7 +170,12 @@ const HeroBanner = () => {
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label> Status </Form.Label>
-                                    <Form.Select defaultValue="Choose...">
+                                    <Form.Select 
+                                        value={genders}
+                                        onChange={(e) => {
+                                            setSearchParams({q:e.target.value});
+                                        }}
+                                    >
                                         <option> Select Status </option>
                                         {status.map((item, i) => {
                                             return <option key={i} value={item.value}>{item.label}</option>
@@ -147,7 +187,8 @@ const HeroBanner = () => {
                                         variant="primary"
                                         type="submit"
                                         className="submitBtnBanner"
-                                        onClick={navigateMatches}
+                                        // onClick={navigateMatches}
+                                        // onClick={() => setSearchParams({filter: `setGenders`}) }
                                     >
                                         Submit
                                     </Button>

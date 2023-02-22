@@ -1,0 +1,29 @@
+@import "../styles/variable.scss";
+
+.nav{
+    &.sidebra-ui{
+        padding: 1.5rem 1rem 1rem;
+        max-width: 230px;
+        height: calc(100vh - 76px);
+        box-shadow: 2px 0 15px rgba($gray-500, 0.2);
+        z-index: 1;
+        .nav-link{
+            color: $dark-blue;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 6px;
+            svg{
+                margin-right: 6px;
+                font-size: 18px;
+            }
+            &:hover,
+            &.active{
+                background: $dark-bright-pink;
+                color: $white;
+            }
+            &:hover{
+                background: $bright-pink;
+            }
+        }
+    }
+}

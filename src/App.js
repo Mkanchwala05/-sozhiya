@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Home";
@@ -14,9 +14,10 @@ import Upgrade from "./pages/upgradeMemberShip";
 import ConatctUs from "./pages/contactUs";
 import LoginPage from "./pages/login";
 import SignUpPage from "./pages/signUp";
-import "./App.scss";
+import Dashboard from "./pages/admin/dashboard/index";
 import { useSelector } from "react-redux";
 import { selectUser } from "./store/auth/userSlice";
+import "./App.scss";
 
 export default function App() {
   const user = useSelector(selectUser);
@@ -45,17 +46,18 @@ export default function App() {
   //   expires.setTime(expires.getTime() + expiry * 24 * 60 * 60 * 1000);
   //   document.cookie = key + "=" + value + ";expires=" + expires.toUTCString();
   // }
+  // const [token, setToken] = useState();
 
   return (
     <BrowserRouter>
       <Routes>
-        {/* {
-                    user ? <Route path="/" element={<Layout />} /> :
-                    <Route path="/" element={<LoginPage />} />
-                } */}
+        {/* {token ? 
+          <Route path="/" element={<Layout />} /> :
+          <Route path="/" element={<LoginPage />} />
+        } */}
         <Route path="/" element={<Layout />} />
         <Route path="login" element={<LoginPage />} />
-        <Route path="profile/:id" element={<UserProfile />} />
+        <Route path="profile/:usr_id" element={<UserProfile />} />
         <Route path="matches" element={<MatchesProfile />} />
         <Route path="premium-Members" element={<Paidembers />} />
         <Route path="viewed-profile" element={<ViewedProfile />} />
@@ -66,6 +68,7 @@ export default function App() {
         <Route path="Upgrade" element={<Upgrade />} />
         <Route path="contact-us" element={<ConatctUs />} />
         <Route path="signUp" element={<SignUpPage />} />
+        <Route path="admin" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

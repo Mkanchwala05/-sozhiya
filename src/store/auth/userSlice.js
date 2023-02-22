@@ -17,7 +17,7 @@ export const login = createAsyncThunk("auth/login", async (data) => {
     console.log("response", response);
     if (response.status === 200) {
       return {
-        EmailAddress: response.data.email,
+        emailAddress: response.data.emailAddress,
         refresh: response.data.refresh,
         access: response.data.access,
       };
@@ -25,7 +25,8 @@ export const login = createAsyncThunk("auth/login", async (data) => {
     } else {
       return new Error();
     }
-  } catch (error) {
+  } 
+  catch (error) {
     throw new Error(error.response.data);
   }
 });
@@ -40,8 +41,14 @@ export const verifyToken = createAsyncThunk(
           token: token,
         }
       );
-      return { status: true, data: response.data };
-    } catch (error) {
+      console.log("response", response);
+      if (response.status === 200) {
+        return {
+          usr_token: response.data.usr_token,
+        }
+      }
+    } 
+    catch (error) {
       return { status: false, error: error };
     }
   }

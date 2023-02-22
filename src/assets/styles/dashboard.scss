@@ -1,0 +1,49 @@
+@import "../styles/variable.scss";
+
+.dashboard-ui{
+    overflow: hidden;
+    .navbar {
+        .navbar-brand{
+            img{
+                max-width: 220px;
+            }
+        }
+    }
+    .dashboard-body{
+        .dashboard-body-right{
+            background: $gray-100;
+            padding: 2.375rem 2.375rem;
+            height: calc(100vh - 76px);
+            overflow: auto;
+            .card{
+                box-shadow: 0 4px 15px $gray-200;
+                border: none;
+                border-radius: 5px;
+                .card-header{
+                    background: #fff;
+                }
+                .table{
+                    tr{
+                        border: none;
+                        th,td
+                        {
+                            border: none;
+                            font-size: 14px;
+                            font-weight: 600;
+                        }
+                        th{
+                            color: $dark-bright-pink;
+                        }
+                        td{
+                            border: none;
+                            padding: 1rem 0.5rem;
+                            font-size: 14px;
+                            font-weight: 400;
+
+                        }
+                    }
+                }
+            }
+        }   
+    }
+}

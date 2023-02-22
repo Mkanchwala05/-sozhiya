@@ -17,14 +17,14 @@ function FullPorfileCard(props) {
             const response = await axios.get(
                 `https://sozhiyavellalarmarriage.com/matrimonyApp/UserController/getUsersList`,
             );
-            setUsers(response.data);
-            setError(null);
-          } catch (err) {
-            setError(err.message);
-            setUsers(null);
-          } finally {
-            setLoading(false);
-          }
+                setUsers(response.data);
+                setError(null);
+            } catch (err) {
+                setError(err.message);
+                setUsers(null);
+            } finally {
+                setLoading(false);
+            }
         };
         getData();
       }, []);
@@ -35,6 +35,7 @@ function FullPorfileCard(props) {
             </Col>
         );
       }
+
     return (
         <>
             {error && (
