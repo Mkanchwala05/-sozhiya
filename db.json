@@ -247,7 +247,39 @@
       "employerDetails": "test user",
       "employedCountry": "Armenia",
       "id": "7"
+    },
+    {
+      "name": "testing user",
+      "emailAddress": "mk2@yopmail.com",
+      "password": "12345",
+      "confirmPassword": "12345",
+      "dob": "2022-07-05",
+      "sex": "Male",
+      "maritalStatus": "Unmarried ",
+      "contactPerson": "testing user",
+      "phoneNumber": 2423412412,
+      "alternativeNumber": 2131231234,
+      "kulam": "Aadhi",
+      "communityName": "Kodikal Pillai",
+      "createdBy": "Brother",
+      "subject": "testing user testing user testing user testing user testing user testing user",
+      "timeOfBirth": "07:30",
+      "dayofBirth": "",
+      "placeofBirth": "",
+      "rasi": "Vrichigam / Scorpio",
+      "star": "11",
+      "padham": "2",
+      "lagnam": "3",
+      "jananaKaala": "5",
+      "jananaYear": "2022-06-09",
+      "education": "Bachelors",
+      "college": "testing user ",
+      "jobDetails": "testing user ",
+      "employerDetails": "testing user ",
+      "employedCountry": "Australia",
+      "id": "8"
     }
+
 
   ]
 }
